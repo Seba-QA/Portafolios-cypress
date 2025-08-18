@@ -1,0 +1,12 @@
+{
+    "login": {
+        "username": "[data-test='username']",
+        "password": "[data-test='password']",
+        "loginButton": "[data-test='login-button']",
+        "ErrorMessage": "[data-test='error']"
+    },
+    "products": {
+        "title": ".title",
+        "inventoryContainer": ".inventory_container"
+    }
+}
