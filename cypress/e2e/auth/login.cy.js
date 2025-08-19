@@ -1,13 +1,14 @@
 import selectors from '../../fixtures/selectors.json';
 import commands from '../../support/commands';
+import data from '../../fixtures/data.json';
 
 describe('Authentication Tests', () => {
 	beforeEach(function(){
-        cy.visit('https://www.saucedemo.com/');
+        cy.visit(data.urls.login);
     })
 
     it('Successful login correcto credentials', ()=> {
-        cy.login('standard_user', 'secret_sauce');
+        cy.login(data.users.standard.username, data.users.password);
         cy.shouldHaveUrl('include', '/inventory.html');
         cy.shouldBeVisible(selectors.products.title);
         cy.shouldBeVisible(selectors.products.inventoryContainer);
@@ -21,7 +22,7 @@ describe('Authentication Tests', () => {
     });
 
     it('Unsuccessful login with empty user', () => {
-        cy.writeIn(selectors.login.password, 'secret_sauce');
+        cy.writeIn(selectors.login.password, data.users.password);
         cy.clickIn(selectors.login.loginButton);
         cy.shouldBeVisible(selectors.login.ErrorMessage);
         cy.shouldHaveText(selectors.login.ErrorMessage, 'Epic sadface: Username is required');
@@ -29,15 +30,15 @@ describe('Authentication Tests', () => {
     });
 
     it('Unsuccessful login with empty password', () => {
-        cy.writeIn(selectors.login.username, 'standard_user');
+        cy.writeIn(selectors.login.username, data.users.standard.username);
         cy.clickIn(selectors.login.loginButton);
         cy.shouldBeVisible(selectors.login.ErrorMessage);
         cy.shouldHaveText(selectors.login.ErrorMessage, 'Epic sadface: Password is required');
         cy.shouldHaveUrl('eq', 'https://www.saucedemo.com/');
     });
 
-    it.only('Unsuccessful login with locked out user', () => {
-        cy.login('locked_out_user', 'secret_sauce');
+    it('Unsuccessful login with locked out user', () => {
+        cy.login(data.users.locked.username, 'secret_sauce');
         cy.shouldBeVisible(selectors.login.ErrorMessage);  
         cy.shouldHaveText(selectors.login.ErrorMessage, 'Epic sadface: Sorry, this user has been locked out.');
         cy.shouldHaveUrl('eq', 'https://www.saucedemo.com/');

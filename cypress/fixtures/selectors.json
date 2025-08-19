@@ -7,6 +7,8 @@
     },
     "products": {
         "title": ".title",
-        "inventoryContainer": ".inventory_container"
+        "inventoryContainer": ".inventory_container",
+        "inventoryList": "[data-test='inventory-list']",
+        "inventoryItem": "[data-test='inventory-item']"
     }
 }

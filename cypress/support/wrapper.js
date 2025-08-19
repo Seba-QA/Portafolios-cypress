@@ -26,7 +26,6 @@ Cypress.Commands.add('shouldHaveText', (selector, expectedText) => {
 
 // ✅ Validar url
 Cypress.Commands.add('shouldHaveUrl', (validationType, expectedUrl) => {
-    // validationType puede ser 'include', 'eq', etc.
     const validTypes = ['include', 'eq', 'contain'];
 
     if (!validTypes.includes(validationType)) {
@@ -34,4 +33,9 @@ Cypress.Commands.add('shouldHaveUrl', (validationType, expectedUrl) => {
     } else {
         cy.url().should(validationType, expectedUrl);
     }
+});
+
+// ✅ Retorna la cantidad de items en un selector
+Cypress.Commands.add('getCount', (listSelector, itemSelector) => {
+  return cy.get(listSelector).find(itemSelector).its('length');
 });
