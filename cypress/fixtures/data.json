@@ -1,0 +1,20 @@
+{
+  "users": {
+    "standard": {
+      "username": "standard_user"
+    },
+    "locked": {
+      "username": "locked_out_user"
+    },
+    "problem": {
+      "username": "problem_user"
+    },
+    "password": "secret_sauce"
+  },
+  "urls": {
+    "login": "https://www.saucedemo.com/",
+    "products": "https://www.saucedemo.com/inventory.html",
+    "cart": "https://www.saucedemo.com/cart.html",
+    "checkout": "https://www.saucedemo.com/checkout-step-one.html"
+  }
+}
