@@ -17,31 +17,46 @@ Este repositorio se actualizará progresivamente, incorporando nuevos módulos, 
    ```bash
    git clone https://github.com/Seba-QA/Portafolios-cypress.git
    cd Swag-Labs-Cypress
+   ```
 2. **Instalar dependencias**
+   ```bash
    npm install
+   ```
 3. **Ejecutar Cypress en modo interactivo**
+   ```bash
    npx cypress open
-1. **Ejecutar todas las pruebas en modo headless**
+   ```
+4. **Ejecutar todas las pruebas en modo headless**
+   ```bash
    npx cypress run
+   ```
 
 ## **Estructura del proyecto**
-    Swag-Labs/
-│── cypress/
-│   ├── e2e/              # Pruebas E2E organizadas por módulos
-│   ├── fixtures/         # Datos de prueba y selectores en JSON
-│   ├── support/          # Commands personalizados y configuraciones
-│   └── reports/          # Reportes de ejecución (en futuras versiones)
-│── documentaciones/      # Documentación detallada de cada módulo
-│── package.json          # Dependencias del proyecto
-└── README.md             # Este archivo
+
+```
+Swag-Labs/
+│
+├── cypress/
+│   ├── e2e/          # Pruebas E2E organizadas por módulos
+│   ├── fixtures/     # Datos de prueba y selectores en JSON
+│   ├── support/      # Commands personalizados y configuraciones
+│   └── reports/      # Reportes de ejecución (en futuras versiones)
+│
+├── documentaciones/  # Documentación detallada de cada módulo
+│
+├── package.json      # Dependencias del proyecto
+│
+└── README.md         # Este archivo
+```
 
 ## **Módulos Actuales**
-**Autenticación (Login)**: Validación de todos los escenarios relacionados al proceso de autenticación, incluyendo casos exitosos y fallidos.
-Documentación: documentaciones/login.md
+- **Autenticación (Login)**: Validación de todos los escenarios relacionados al proceso de autenticación, incluyendo casos exitosos y fallidos.
+  - Documentación: `documentaciones/login.md`
+  
 (Se irán añadiendo más módulos conforme avance el desarrollo)
 
 ## **Autor**
-Técnico Universitario en Informática | QA & Automatización de Pruebas
-LinkedIn: www.linkedin.com/in/sebastián-gonzalez-qa
+Técnico Universitario en Informática | QA & Automatización de Pruebas  
+LinkedIn: [www.linkedin.com/in/sebastián-gonzalez-qa](https://www.linkedin.com/in/sebastián-gonzalez-qa)
 
 
