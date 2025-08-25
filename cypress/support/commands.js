@@ -39,3 +39,30 @@ Cypress.Commands.add('validateOrder', (selector, direction, type) => {
     expect(values).to.deep.equal(sorted);
   });
 });
+
+
+Cypress.Commands.add('addToCart', () => {
+  cy.get(selectors.products.inventoryItem).then(($items) => {
+    const randomIndex = Math.floor(Math.random() * $items.length);
+    cy.wrap($items[randomIndex]).within(() => {
+      cy.get(selectors.products.itemButton).click();
+    });
+  });
+});
+
+Cypress.Commands.add('logOrder', (selector, subSelector = null) => {
+    cy.get(selector).then(($items) => {
+        const values = [];
+
+        $items.each((index, item) => {
+            if (subSelector) {
+                values.push(Cypress.$(item).find(subSelector).text().trim());
+            } else {
+                values.push(Cypress.$(item).text().trim());
+            }
+        });
+
+        cy.log(`Orden actual (${values.length} ítems): ${values.join(' | ')}`);
+    });
+});
+

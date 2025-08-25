@@ -23,6 +23,13 @@ Cypress.Commands.add('shouldBeVisible', (selector) => {
 Cypress.Commands.add('shouldHaveText', (selector, expectedText) => {
   cy.get(selector).should('have.text', expectedText);
 });
+// Variante que espera a que exista el elemento antes de validar visibilidad
+Cypress.Commands.add('shouldBeVisibleAndHaveText', (selector) => {
+  return cy.get(selector, { timeout: 15000 }).should(($el) => {
+    expect($el).to.exist;
+    expect($el.text().trim()).to.not.equal('');
+  }).and('be.visible');
+});
 
 // ✅ Validar url
 Cypress.Commands.add('shouldHaveUrl', (validationType, expectedUrl) => {

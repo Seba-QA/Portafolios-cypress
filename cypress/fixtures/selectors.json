@@ -14,5 +14,17 @@
         "itemName": ".inventory_item_name",
         "itemPrice": ".inventory_item_price",
         "itemButton": "button"
+    },
+    "cart": {
+        "badge": ".shopping_cart_badge",
+        "link": ".shopping_cart_link",
+        "removeButton": "button[id^='remove-']"
+    },
+    "productDetails": {
+        "itemName": "[data-test='inventory-item-name']",
+        "itemImg": ".inventory_details_img",
+        "itemPrice": ".inventory_details_price",
+        "itemDesc": ".inventory_details_desc",
+        "itemButton": "button"
     }
 }
