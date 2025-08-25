@@ -42,7 +42,7 @@ Swag-Labs/
 │   ├── support/      # Commands personalizados y configuraciones
 │   └── reports/      # Reportes de ejecución (en futuras versiones)
 │
-├── documentaciones/  # Documentación detallada de cada módulo
+├── docs/  # Documentación detallada de cada módulo
 │
 ├── package.json      # Dependencias del proyecto
 │
@@ -51,7 +51,8 @@ Swag-Labs/
 
 ## **Módulos Actuales**
 - **Autenticación (Login)**: Validación de todos los escenarios relacionados al proceso de autenticación, incluyendo casos exitosos y fallidos.
-  - Documentación: `documentaciones/login.md`
+  - Documentación: `documentaciones/auth.md`
+  - Documentación: `documentaciones/products.md`
   
 (Se irán añadiendo más módulos conforme avance el desarrollo)
 
