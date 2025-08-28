@@ -7,9 +7,6 @@ Esta carpeta contiene los archivos de pruebas automatizadas para la gestión de 
 - **productsPage.cy.js**  
   Pruebas relacionadas con la visualización, filtrado y ordenamiento de productos.
 
-- **productsCart.cy.js**  
-  Pruebas enfocadas en la funcionalidad del carrito: agregar y eliminar productos.
-
 - **productsDetails.cy.js**  
   Pruebas para validar el acceso y la información mostrada en la página de detalles de un producto.
 
@@ -47,28 +44,6 @@ Verificar que al seleccionar un producto aleatorio, la página de detalles muest
 2. Obtener su nombre antes de hacer clic.
 3. Acceder a la página de detalles y comparar el nombre mostrado con el guardado.
 4. Validar que la imagen, precio, descripción y botón de acción estén visibles.
-
----
-
-### 4. Agregar productos al carrito (productsCart.cy.js)
-**Propósito:**  
-Validar que los productos puedan ser agregados al carrito y que el contador del carrito refleje la cantidad correcta.
-
-**Pasos:**
-1. Recorrer la lista de productos y agregar cada uno al carrito.
-2. Validar que el badge del carrito muestre el número total de productos agregados.
-
----
-
-### 5. Eliminar productos del carrito (productsCart.cy.js)
-**Propósito:**  
-Verificar que los productos puedan ser eliminados del carrito y que el carrito quede vacío.
-
-**Pasos:**
-1. Agregar un producto aleatorio al carrito.
-2. Acceder al carrito.
-3. Si hay productos, eliminarlos todos y validar que el badge desaparezca.
-4. Si el carrito está vacío, registrar un mensaje en el log.
 
 ---
 
