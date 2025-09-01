@@ -50,7 +50,6 @@ Swag-Labs/
 ```
 
 ## **Módulos Actuales**
-- **Autenticación (Login)**: Validación de todos los escenarios relacionados al proceso de autenticación, incluyendo casos exitosos y fallidos.
   - Documentación: `documentaciones/auth.md`
   - Documentación: `documentaciones/products.md`
   
