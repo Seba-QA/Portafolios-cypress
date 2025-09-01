@@ -46,3 +46,6 @@ Cypress.Commands.add('shouldHaveUrl', (validationType, expectedUrl) => {
 Cypress.Commands.add('getCount', (listSelector, itemSelector) => {
   return cy.get(listSelector).find(itemSelector).its('length');
 });
+
+
+

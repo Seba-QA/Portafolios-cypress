@@ -16,5 +16,10 @@
     "products": "https://www.saucedemo.com/inventory.html",
     "cart": "https://www.saucedemo.com/cart.html",
     "checkout": "https://www.saucedemo.com/checkout-step-one.html"
+  },
+  "personalData": {
+    "firstName": "Prueba",
+    "lastName": "Automatizada",
+    "zip": "12345"
   }
 }

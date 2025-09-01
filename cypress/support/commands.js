@@ -43,10 +43,27 @@ Cypress.Commands.add('validateOrder', (selector, direction, type) => {
 
 Cypress.Commands.add('addToCart', () => {
   cy.get(selectors.products.inventoryItem).then(($items) => {
-    const randomIndex = Math.floor(Math.random() * $items.length);
-    cy.wrap($items[randomIndex]).within(() => {
+    // Filtrar solo los productos que aún no están en el carrito
+    const available = [];
+    Cypress.$($items).each((i, item) => {
+      const btn = Cypress.$(item).find(selectors.products.itemButton);
+      if (btn.text().trim().toLowerCase() === 'add to cart') {
+        available.push(item);
+      }
+    });
+
+    if (available.length === 0) {
+      cy.log('Todos los productos ya están en el carrito.');
+      return;
+    }
+    const randomIndex = Math.floor(Math.random() * available.length);
+    const selectedItem = available[randomIndex];
+    const name = Cypress.$(selectedItem).find(selectors.products.itemName).text().trim();
+    cy.wrap(available[randomIndex]).within(() => {
       cy.get(selectors.products.itemButton).click();
     });
+
+    return cy.wrap(name)
   });
 });
 

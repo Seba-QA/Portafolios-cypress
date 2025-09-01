@@ -18,7 +18,26 @@
     "cart": {
         "badge": ".shopping_cart_badge",
         "link": ".shopping_cart_link",
-        "removeButton": "button[id^='remove-']"
+        "removeButton": "button[id^='remove-']",
+        "cartList": ".cart_list",
+        "cartItem": ".cart_item",
+        "continueShopping": "[data-test='continue-shopping']",
+        "checkout": "[data-test='checkout']",
+        "formName": "[data-test='firstName']",
+        "formLastName": "[data-test='lastName']",
+        "formZip": "[data-test='postalCode']",
+        "continue": "[data-test='continue']"
+    },
+    "CheckoutOverview": {
+        "cartList": ".cart_list",
+        "cartItem": ".cart_item",
+        "finish": "[data-test='finish']",
+        "itemName": ".inventory_item_name",
+        "itemPrice": ".inventory_item_price",
+        "itemDesc": ".inventory_item_desc",
+        "subtotal": ".summary_subtotal_label",
+        "tax": ".summary_tax_label",
+        "total": ".summary_total_label"
     },
     "productDetails": {
         "itemName": "[data-test='inventory-item-name']",
