@@ -52,6 +52,7 @@ Swag-Labs/
 ## **Módulos Actuales**
   - Documentación: `documentaciones/auth.md`
   - Documentación: `documentaciones/products.md`
+  - Documentación: `documentaciones/cart.md`
   
 (Se irán añadiendo más módulos conforme avance el desarrollo)
 
