@@ -83,6 +83,53 @@ import data from '../../fixtures/data.json';
                 cy.shouldHaveUrl('include', '/checkout-step-two.html');
                 cy.log('Navegación a la página de checkout step two correcta ✅');
             });
+            cy.get(selectors.checkoutOverview.inventoryItem).then(($items) => {
+                const actualCart = [];
+                Cypress.$($items).each((_, item) => {
+                    const name = Cypress.$(item).find(selectors.checkoutOverview.itemName).text().trim();
+                    actualCart.push(name);
+                });
+                expectedCart.forEach((product) => {
+                    expect(actualCart).to.include(product, 'El producto "${product}" está en el carrito ✅')
+                });
+
+                expect(actualCart.length).to.equal(expectedCart.length, 'La cantidad de productos en el carrito es correcta ✅');
+            });
+
+            let calculatedSum = 0;
+
+            cy.get(selectors.checkoutOverview.cartItem).each(($item) => {
+                cy.wrap($item).find(selectors.checkoutOverview.itemPrice).invoke('text').then((priceText) => {
+                    const price = parseFloat(priceText.replace('$', '').trim());
+                    calculatedSum += price;
+                });
+            }).then(() => {
+
+                cy.get(selectors.checkoutOverview.subtotal).invoke('text').then((subtotalText) => {
+                    const subtotal = parseFloat(subtotalText.replace('Item total: $', '').trim());
+                    expect(subtotal).to.eq(calculatedSum);
+                });
+
+
+                cy.get(selectors.checkoutOverview.tax).invoke('text').then((taxText) => {
+                    const tax = parseFloat(taxText.replace('Tax: $', '').trim());
+
+                    cy.get(selectors.checkoutOverview.total).invoke('text').then((totalText) => {
+                        const total = parseFloat(totalText.replace('Total: $', '').trim());
+                        expect(total).to.eq(calculatedSum + tax);
+                    });
+                });
+            });
+            cy.clickIn(selectors.checkoutOverview.finish). then(() => {
+                cy.shouldHaveUrl('include', '/checkout-complete.html');
+                cy.log('Navegación a la página de checkout complete correcta ✅');
+                cy.shouldHaveText(selectors.checkoutOverview.msgComplete, 'Thank you for your order!');
+                cy.shouldHaveText(selectors.checkoutOverview.msgText, 'Your order has been dispatched, and will arrive just as fast as the pony can get there!');
+                cy.clickIn(selectors.checkoutOverview.backHome). then(() => {
+                    cy.shouldHaveUrl('include', '/inventory.html');
+                    cy.log('Navegación a la página de productos correcta ✅');
+                });
+            });
         });
     });  
 }

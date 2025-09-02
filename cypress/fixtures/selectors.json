@@ -28,16 +28,20 @@
         "formZip": "[data-test='postalCode']",
         "continue": "[data-test='continue']"
     },
-    "CheckoutOverview": {
+    "checkoutOverview": {
         "cartList": ".cart_list",
         "cartItem": ".cart_item",
         "finish": "[data-test='finish']",
+        "inventoryItem": "[data-test='inventory-item']",
         "itemName": ".inventory_item_name",
         "itemPrice": ".inventory_item_price",
         "itemDesc": ".inventory_item_desc",
         "subtotal": ".summary_subtotal_label",
         "tax": ".summary_tax_label",
-        "total": ".summary_total_label"
+        "total": ".summary_total_label",
+        "msgComplete": ".complete-header",
+        "msgText": ".complete-text",
+        "backHome": "[data-test='back-to-products']"
     },
     "productDetails": {
         "itemName": "[data-test='inventory-item-name']",
