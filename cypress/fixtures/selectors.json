@@ -51,5 +51,9 @@
         "itemPrice": ".inventory_details_price",
         "itemDesc": ".inventory_details_desc",
         "itemButton": "button"
+    },
+    "logout": {
+        "burgerMenu": "#react-burger-menu-btn",
+        "logoutLink": "#logout_sidebar_link"
     }
 }
