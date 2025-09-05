@@ -22,11 +22,7 @@
         "cartList": ".cart_list",
         "cartItem": ".cart_item",
         "continueShopping": "[data-test='continue-shopping']",
-        "checkout": "[data-test='checkout']",
-        "formName": "[data-test='firstName']",
-        "formLastName": "[data-test='lastName']",
-        "formZip": "[data-test='postalCode']",
-        "continue": "[data-test='continue']"
+        "checkout": "[data-test='checkout']"
     },
     "checkoutOverview": {
         "cartList": ".cart_list",
@@ -41,7 +37,13 @@
         "total": ".summary_total_label",
         "msgComplete": ".complete-header",
         "msgText": ".complete-text",
-        "backHome": "[data-test='back-to-products']"
+        "backHome": "[data-test='back-to-products']",
+        "formName": "[data-test='firstName']",
+        "formLastName": "[data-test='lastName']",
+        "formZip": "[data-test='postalCode']",
+        "continue": "[data-test='continue']",
+        "errorMsg": "[data-test='error']",
+        "cancel": "[data-test='cancel']"
     },
     "productDetails": {
         "itemName": "[data-test='inventory-item-name']",

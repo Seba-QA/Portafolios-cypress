@@ -83,3 +83,9 @@ Cypress.Commands.add('logOrder', (selector, subSelector = null) => {
     });
 });
 
+Cypress.Commands.add('fillOutCheckoutForm', (firstName, lastName, postalCode) => {
+    cy.writeIn(selectors.checkoutOverview.formName, firstName);
+    cy.writeIn(selectors.checkoutOverview.formLastName, lastName);
+    cy.writeIn(selectors.checkoutOverview.formZip, postalCode);
+});
+

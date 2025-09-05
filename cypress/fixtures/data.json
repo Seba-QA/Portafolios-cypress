@@ -21,5 +21,10 @@
     "firstName": "Prueba",
     "lastName": "Automatizada",
     "zip": "12345"
-  }
+  },
+  "buyer": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "zip": "90210"
+  } 
 }
