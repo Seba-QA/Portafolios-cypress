@@ -69,10 +69,14 @@ El proyecto genera automáticamente reportes en dos formatos:
 - **JUnit (XML)** → útil para integración con herramientas de CI/CD.  
 - **Mochawesome (JSON + HTML unificado)** → reportes visuales detallados con gráficos y resultados de pruebas.  
 
-📌 Los reportes se encuentran en la carpeta:
+**Los reportes se encuentran en la carpeta:**
+```
 cypress/reports/
+│
 ├── junit/
+│
 └── mochawesome/
+```
 
 Ejemplo de ejecución:
 - Al ejecutar `npm run report:full`, se limpia la carpeta de reportes anteriores.
