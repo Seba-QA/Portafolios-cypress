@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-06T22:55:09.841Z",
+    "end": "2025-09-06T22:55:15.317Z",
+    "duration": 5476,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "48ae36b7-53db-431c-9977-313b088d71b0",
+      "title": "",
+      "fullFile": "cypress/e2e/products/productsDetails.cy.js",
+      "file": "cypress/e2e/products/productsDetails.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d6165b64-3674-421b-8841-d857800fd155",
+          "title": "Products Details Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "acces the details of a random product",
+              "fullTitle": "Products Details Page acces the details of a random product",
+              "timedOut": null,
+              "duration": 4220,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_selectors.default.products.inventoryItem).its('length').then(len => {\n  const idx = Cypress._.random(0, len - 1);\n  cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).invoke('text').then(selectedProductName => {\n    cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).click();\n    cy.location('pathname', {\n      timeout: 15000\n    }).should('include', 'inventory-item.html');\n    cy.get(_selectors.default.productDetails.itemName).should('be.visible').and('have.text', selectedProductName.trim());\n    cy.shouldBeVisible(_selectors.default.productDetails.itemImg);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemPrice);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemDesc);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemButton);\n  });\n});",
+              "err": {},
+              "uuid": "b419c68b-46ab-4fb9-a5b9-3584b7060c9c",
+              "parentUUID": "d6165b64-3674-421b-8841-d857800fd155",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b419c68b-46ab-4fb9-a5b9-3584b7060c9c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4220,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

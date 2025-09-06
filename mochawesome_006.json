@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-06T22:54:57.811Z",
+    "end": "2025-09-06T22:55:08.414Z",
+    "duration": 10603,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c7a61d83-5153-4e6c-a76b-37135a5bd1d2",
+      "title": "",
+      "fullFile": "cypress/e2e/checkout/checkoutOverview.cy.js",
+      "file": "cypress/e2e/checkout/checkoutOverview.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "74e9f6c4-5934-4c04-a233-abb0399d4648",
+          "title": "purchase summary validation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "finalize purchase and validate completion",
+              "fullTitle": "purchase summary validation finalize purchase and validate completion",
+              "timedOut": null,
+              "duration": 9340,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickIn(_selectors.default.checkoutOverview.finish).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-complete.html');\n  cy.log('Navegación a la página de checkout complete correcta ✅');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgComplete, 'Thank you for your order!');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgText, 'Your order has been dispatched, and will arrive just as fast as the pony can get there!');\n  cy.clickIn(_selectors.default.checkoutOverview.backHome).then(() => {\n    cy.shouldHaveUrl('include', '/inventory.html');\n    cy.log('Navegación a la página de productos correcta ✅');\n  });\n});",
+              "err": {},
+              "uuid": "ab203d68-6faa-48ed-ab31-afc16cfe2067",
+              "parentUUID": "74e9f6c4-5934-4c04-a233-abb0399d4648",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ab203d68-6faa-48ed-ab31-afc16cfe2067"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9340,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

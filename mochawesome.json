@@ -1,0 +1,569 @@
+{
+  "stats": {
+    "suites": 8,
+    "tests": 11,
+    "passes": 11,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 11,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2025-09-06T22:54:01.782Z",
+    "end": "2025-09-06T22:55:26.965Z",
+    "duration": 85183
+  },
+  "results": [
+    {
+      "uuid": "12d7619e-4ba9-445b-b656-077fe5b55cd4",
+      "title": "",
+      "fullFile": "cypress/e2e/auth/logout.cy.js",
+      "file": "cypress/e2e/auth/logout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "103f66cf-12ba-4810-849f-6132c47b3b49",
+          "title": "Logout",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logout successfully",
+              "fullTitle": "Logout Logout successfully",
+              "timedOut": null,
+              "duration": 4558,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_selectors.default.logout.burgerMenu).click();\ncy.get(_selectors.default.logout.logoutLink).click();\ncy.url().should('include', '/');\ncy.get(_selectors.default.login.loginButton).should('be.visible');",
+              "err": {},
+              "uuid": "4e098831-236d-404f-9738-0a3044abb011",
+              "parentUUID": "103f66cf-12ba-4810-849f-6132c47b3b49",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4e098831-236d-404f-9738-0a3044abb011"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4558,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "d49f2623-6a2a-4773-a854-8b5ee5cf55c1",
+      "title": "",
+      "fullFile": "cypress/e2e/cart/cartActions.cy.js",
+      "file": "cypress/e2e/cart/cartActions.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d8d7e0c6-5aaf-4015-8d88-c3e9816c252c",
+          "title": "Cart Page actions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add products to cart",
+              "fullTitle": "Cart Page actions Add products to cart",
+              "timedOut": null,
+              "duration": 4680,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_selectors.default.products.inventoryItem).each(($item, index) => {\n  cy.wrap($item).within(() => {\n    cy.shouldBeVisible(_selectors.default.products.itemButton);\n    cy.get(_selectors.default.products.itemButton).click();\n  });\n  cy.log(`Producto ${index + 1} agregado al carrito correctamente ✅`);\n});\ncy.get(_selectors.default.products.inventoryItem).its('length').then(total => {\n  cy.get(_selectors.default.cart.badge).should('have.text', `${total}`);\n  cy.get(_selectors.default.cart.badge).should('be.visible');\n});\ncy.shouldBeVisible(_selectors.default.cart.removeButton);",
+              "err": {},
+              "uuid": "f410eb4d-d0c2-4e04-9d70-d8f4b688702f",
+              "parentUUID": "d8d7e0c6-5aaf-4015-8d88-c3e9816c252c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "remove products from cart",
+              "fullTitle": "Cart Page actions remove products from cart",
+              "timedOut": null,
+              "duration": 4215,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.addToCart();\ncy.get(_selectors.default.cart.link).click();\ncy.get(_selectors.default.cart.badge).then($badge => {\n  const itemCount = parseInt($badge.text());\n  if (itemCount > 0) {\n    cy.get(_selectors.default.cart.removeButton).each($btn => {\n      cy.wrap($btn).click();\n    });\n    cy.get(_selectors.default.cart.badge).should('not.exist');\n    cy.log('Todos los productos han sido eliminados del carrito correctamente ✅');\n  } else {\n    cy.log('El carrito ya está vacío.');\n  }\n});",
+              "err": {},
+              "uuid": "0551f268-87b5-49af-b055-030a9b460a55",
+              "parentUUID": "d8d7e0c6-5aaf-4015-8d88-c3e9816c252c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "view the products in the cart",
+              "fullTitle": "Cart Page actions view the products in the cart",
+              "timedOut": null,
+              "duration": 4544,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const addedProducts = [];\n// 1. Seleccionamos los productos disponibles\ncy.get(_selectors.default.products.inventoryItem).then($items => {\n  const total = $items.length;\n  const randomCount = Math.floor(Math.random() * total) + 1;\n  // 2. Elegimos productos aleatorios\n  const selectedItems = Cypress._.sampleSize($items.toArray(), randomCount);\n  selectedItems.forEach(item => {\n    const productName = Cypress.$(item).find(_selectors.default.products.itemName).text().trim();\n    addedProducts.push(productName);\n    // 3. Agregar cada producto al carrito\n    cy.wrap(item).within(() => {\n      cy.get(_selectors.default.products.itemButton).click();\n    });\n  });\n})\n// 4. Guardamos el array dentro del flujo de Cypress\n.then(() => {\n  cy.wrap(addedProducts).as('addedProducts');\n});\n// 5. Ahora vamos al carrito\ncy.get(_selectors.default.cart.link).click();\ncy.shouldBeVisible(_selectors.default.cart.cartList);\n// 6. Recuperamos el alias cuando Cypress ya lo tiene cargado\ncy.get('@addedProducts').then(addedProducts => {\n  // Validar cantidad\n  cy.get(_selectors.default.cart.cartItem).should('have.length', addedProducts.length);\n  // Validar que los productos estén en el carrito\n  cy.get(_selectors.default.cart.cartItem).each($item => {\n    const nameInCart = Cypress.$($item).find(_selectors.default.products.itemName).text().trim();\n    expect(addedProducts).to.include(nameInCart);\n    cy.log(`Producto en el carrito: ${nameInCart} ✅`);\n  });\n});",
+              "err": {},
+              "uuid": "2d928d37-ce71-411d-b8ff-83c889736a8f",
+              "parentUUID": "d8d7e0c6-5aaf-4015-8d88-c3e9816c252c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f410eb4d-d0c2-4e04-9d70-d8f4b688702f",
+            "0551f268-87b5-49af-b055-030a9b460a55",
+            "2d928d37-ce71-411d-b8ff-83c889736a8f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13439,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "d964845a-6ae4-4edc-a7a9-93e8cef43ee7",
+      "title": "",
+      "fullFile": "cypress/e2e/cart/cartNavigation.cy.js",
+      "file": "cypress/e2e/cart/cartNavigation.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a8e55114-e5bf-4a92-92df-36678f4a3f1d",
+          "title": "Cart page navigation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "go to checkout from cart",
+              "fullTitle": "Cart page navigation go to checkout from cart",
+              "timedOut": null,
+              "duration": 7337,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const expectedCart = [];\ncy.get(_selectors.default.cart.cartItem).first().within(() => {\n  cy.get(_selectors.default.products.itemName).invoke('text').then(firstItemName => {\n    expectedCart.push(firstItemName.trim());\n    cy.log(`Producto esperado en el carrito: ${firstItemName} ✅`);\n  });\n});\ncy.then(() => {\n  cy.log(`Contenido acumulado de expectedCart: ${JSON.stringify(expectedCart)}`);\n  console.log(\"Contenido acumulado en consola:\", expectedCart);\n});\ncy.clickIn(_selectors.default.cart.checkout).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-step-one.html');\n  cy.log('Navegación a la página de checkout correcta ✅');\n});\ncy.writeIn(_selectors.default.checkoutOverview.formName, _data.default.personalData.firstName);\ncy.writeIn(_selectors.default.checkoutOverview.formLastName, _data.default.personalData.lastName);\ncy.writeIn(_selectors.default.checkoutOverview.formZip, _data.default.personalData.zip);\ncy.clickIn(_selectors.default.checkoutOverview.continue).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-step-two.html');\n  cy.log('Navegación a la página de checkout step two correcta ✅');\n});",
+              "err": {},
+              "uuid": "48281b47-a0ff-4c69-9880-7262cfa7248b",
+              "parentUUID": "a8e55114-e5bf-4a92-92df-36678f4a3f1d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "48281b47-a0ff-4c69-9880-7262cfa7248b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7337,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "c45f2e3e-6762-4de3-b333-fe46e7d76edc",
+      "title": "",
+      "fullFile": "cypress/e2e/checkout/checkoutFinish.cy.js",
+      "file": "cypress/e2e/checkout/checkoutFinish.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "02441de0-b5b1-422a-a48f-2d45a40214cf",
+          "title": "Cancel checkout",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cancel from checkout overview",
+              "fullTitle": "Cancel checkout cancel from checkout overview",
+              "timedOut": null,
+              "duration": 9214,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickIn(_selectors.default.checkoutOverview.continue);\ncy.clickIn(_selectors.default.checkoutOverview.cancel).then(() => {\n  cy.shouldHaveUrl('include', '/inventory.html');\n  cy.log('Navegación a la página de inventario correcta ✅');\n});",
+              "err": {},
+              "uuid": "85fa06f5-28d8-449c-ae7d-8a9c9d4b1cda",
+              "parentUUID": "02441de0-b5b1-422a-a48f-2d45a40214cf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "85fa06f5-28d8-449c-ae7d-8a9c9d4b1cda"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9214,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "a8924a3a-1ef2-49b9-bebd-d07e8e37ae40",
+      "title": "",
+      "fullFile": "cypress/e2e/checkout/checkoutForm.cy.js",
+      "file": "cypress/e2e/checkout/checkoutForm.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ebd34409-5b42-4f3c-808f-5fa64d7887b8",
+          "title": "Validate Checkout Form",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "enter buyer information and continue",
+              "fullTitle": "Validate Checkout Form enter buyer information and continue",
+              "timedOut": null,
+              "duration": 8295,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickIn(_selectors.default.checkoutOverview.continue);\ncy.waitSeconds(1);\nif (cy.shouldBeVisible(_selectors.default.checkoutOverview.errorMsg)) {\n  cy.fillOutCheckoutForm(_data.default.buyer.firstName, _data.default.buyer.lastName, _data.default.buyer.zip);\n  cy.clickIn(_selectors.default.checkoutOverview.continue);\n  cy.shouldHaveUrl('include', '/checkout-step-two.html');\n} else {\n  cy.log('No se mostró ningún mensaje de error al intentar continuar sin completar el formulario.');\n}",
+              "err": {},
+              "uuid": "d76798cf-5245-43b1-9bcc-c9574e3a28c8",
+              "parentUUID": "ebd34409-5b42-4f3c-808f-5fa64d7887b8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d76798cf-5245-43b1-9bcc-c9574e3a28c8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8295,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "c7a61d83-5153-4e6c-a76b-37135a5bd1d2",
+      "title": "",
+      "fullFile": "cypress/e2e/checkout/checkoutOverview.cy.js",
+      "file": "cypress/e2e/checkout/checkoutOverview.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "74e9f6c4-5934-4c04-a233-abb0399d4648",
+          "title": "purchase summary validation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "finalize purchase and validate completion",
+              "fullTitle": "purchase summary validation finalize purchase and validate completion",
+              "timedOut": null,
+              "duration": 9340,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickIn(_selectors.default.checkoutOverview.finish).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-complete.html');\n  cy.log('Navegación a la página de checkout complete correcta ✅');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgComplete, 'Thank you for your order!');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgText, 'Your order has been dispatched, and will arrive just as fast as the pony can get there!');\n  cy.clickIn(_selectors.default.checkoutOverview.backHome).then(() => {\n    cy.shouldHaveUrl('include', '/inventory.html');\n    cy.log('Navegación a la página de productos correcta ✅');\n  });\n});",
+              "err": {},
+              "uuid": "ab203d68-6faa-48ed-ab31-afc16cfe2067",
+              "parentUUID": "74e9f6c4-5934-4c04-a233-abb0399d4648",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ab203d68-6faa-48ed-ab31-afc16cfe2067"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9340,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "48ae36b7-53db-431c-9977-313b088d71b0",
+      "title": "",
+      "fullFile": "cypress/e2e/products/productsDetails.cy.js",
+      "file": "cypress/e2e/products/productsDetails.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d6165b64-3674-421b-8841-d857800fd155",
+          "title": "Products Details Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "acces the details of a random product",
+              "fullTitle": "Products Details Page acces the details of a random product",
+              "timedOut": null,
+              "duration": 4220,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_selectors.default.products.inventoryItem).its('length').then(len => {\n  const idx = Cypress._.random(0, len - 1);\n  cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).invoke('text').then(selectedProductName => {\n    cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).click();\n    cy.location('pathname', {\n      timeout: 15000\n    }).should('include', 'inventory-item.html');\n    cy.get(_selectors.default.productDetails.itemName).should('be.visible').and('have.text', selectedProductName.trim());\n    cy.shouldBeVisible(_selectors.default.productDetails.itemImg);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemPrice);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemDesc);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemButton);\n  });\n});",
+              "err": {},
+              "uuid": "b419c68b-46ab-4fb9-a5b9-3584b7060c9c",
+              "parentUUID": "d6165b64-3674-421b-8841-d857800fd155",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b419c68b-46ab-4fb9-a5b9-3584b7060c9c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4220,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "b168b5b2-3a32-42c9-957d-84559b27c9c4",
+      "title": "",
+      "fullFile": "cypress/e2e/products/productsPage.cy.js",
+      "file": "cypress/e2e/products/productsPage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6c0753ff-fa62-4797-b71d-c4aadaf4aada",
+          "title": "Products Page Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "View peoduct list",
+              "fullTitle": "Products Page Tests View peoduct list",
+              "timedOut": null,
+              "duration": 4210,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.shouldBeVisible(_selectors.default.products.inventoryContainer);\ncy.get(_selectors.default.products.inventoryItem).each(($item, index) => {\n  cy.wrap($item).within(() => {\n    cy.shouldBeVisible(_selectors.default.products.itemImg);\n    cy.shouldBeVisible(_selectors.default.products.itemName);\n    cy.shouldBeVisible(_selectors.default.products.itemPrice);\n    cy.shouldBeVisible(_selectors.default.products.itemButton);\n  });\n  cy.log(`Producto agregado: ${$item.find(_selectors.default.products.itemName).text()} ✅`);\n});",
+              "err": {},
+              "uuid": "f808e655-3e38-4124-a5c7-ffce85c674db",
+              "parentUUID": "6c0753ff-fa62-4797-b71d-c4aadaf4aada",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "filter and sort products",
+              "fullTitle": "Products Page Tests filter and sort products",
+              "timedOut": null,
+              "duration": 4522,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.product_sort_container').should('be.visible');\n// Validar que la lista de productos esté ordenada descendentemente (Z-A)\ncy.get('.product_sort_container').select('za');\ncy.validateOrder(_selectors.default.products.inventoryItem, 'desc', 'text');\ncy.logOrder(_selectors.default.products.inventoryItem, _selectors.default.products.itemName);\n// Validar que la lista de productos esté ordenada por defecto (A-Z)\ncy.get('.product_sort_container').select('az');\ncy.validateOrder(_selectors.default.products.inventoryItem, 'asc', 'text');\ncy.logOrder(_selectors.default.products.inventoryItem, _selectors.default.products.itemName);\n// Validar que la lista de productos esté ordenada por precio menor a mayor\ncy.get('.product_sort_container').select('lohi');\ncy.validateOrder(_selectors.default.products.inventoryItem, 'asc', 'number');\ncy.logOrder(_selectors.default.products.inventoryItem, _selectors.default.products.itemName);\n// Validar que la lista de productos esté ordenada por precio mayor a menor\ncy.get('.product_sort_container').select('hilo');\ncy.validateOrder(_selectors.default.products.inventoryItem, 'desc', 'number');\ncy.logOrder(_selectors.default.products.inventoryItem, _selectors.default.products.itemName);",
+              "err": {},
+              "uuid": "c12e13ef-b741-41fb-b3e9-bb154cafa4be",
+              "parentUUID": "6c0753ff-fa62-4797-b71d-c4aadaf4aada",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f808e655-3e38-4124-a5c7-ffce85c674db",
+            "c12e13ef-b741-41fb-b3e9-bb154cafa4be"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8732,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
