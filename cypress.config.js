@@ -1,12 +1,25 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  reporter: "mochawesome",
+  reporter: "cypress-multi-reporters",
   reporterOptions: {
-    reportDir: "cypress/reports", // carpeta donde se guardan los reportes
-    overwrite: false,             // evita que se sobrescriban los reportes anteriores
-    html: false,                  
-    json: true
+    reporterEnabled: "mochawesome, mocha-junit-reporter",
+
+    // Opciones para Mochawesome
+    mochawesomeReporterOptions: {
+      reportDir: "cypress/reports/mochawesome",
+      overwrite: false,
+      html: false,    // solo JSON; el HTML lo generamos luego con 'marge'
+      json: true
+    },
+
+    // Opciones para JUnit
+    mochaJunitReporterReporterOptions: {
+      mochaFile: "cypress/reports/junit/results-[hash].xml",
+      toConsole: false,
+      attachments: false
+      // useFullSuiteTitle: true, // opcional si quieres suite title completo
+    }
   },
 
   e2e: {
