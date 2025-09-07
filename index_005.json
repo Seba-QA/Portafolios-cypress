@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T07:04:33.182Z",
-    "end": "2025-09-07T07:04:50.499Z",
-    "duration": 17317,
+    "start": "2025-09-07T07:12:13.938Z",
+    "end": "2025-09-07T07:12:31.338Z",
+    "duration": 17400,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "8cb72a7d-27c7-4de2-9bf8-e3dd24813ef0",
+      "uuid": "e972cebd-3320-41c3-99bd-7511db3187fa",
       "title": "",
       "fullFile": "cypress/e2e/checkout/checkoutForm.cy.js",
       "file": "cypress/e2e/checkout/checkoutForm.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "624431cf-3278-44bb-8b64-83825d8dcdab",
+          "uuid": "a8876924-15f1-4260-8346-9eda4c0d741e",
           "title": "Validate Checkout Form",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "enter buyer information and continue",
               "fullTitle": "Validate Checkout Form enter buyer information and continue",
               "timedOut": null,
-              "duration": 8525,
+              "duration": 8537,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.clickIn(_selectors.default.checkoutOverview.continue);\ncy.waitSeconds(1);\nif (cy.shouldBeVisible(_selectors.default.checkoutOverview.errorMsg)) {\n  cy.fillOutCheckoutForm(_data.default.buyer.firstName, _data.default.buyer.lastName, _data.default.buyer.zip);\n  cy.clickIn(_selectors.default.checkoutOverview.continue);\n  cy.shouldHaveUrl('include', '/checkout-step-two.html');\n} else {\n  cy.log('No se mostró ningún mensaje de error al intentar continuar sin completar el formulario.');\n}",
               "err": {},
-              "uuid": "4a0a3f59-a506-4e34-92a9-7e62e9264fe3",
-              "parentUUID": "624431cf-3278-44bb-8b64-83825d8dcdab",
+              "uuid": "ba6eef71-94ee-49b7-bf19-74c8fd5c971e",
+              "parentUUID": "a8876924-15f1-4260-8346-9eda4c0d741e",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "validate error messages when fields are empty",
               "fullTitle": "Validate Checkout Form validate error messages when fields are empty",
               "timedOut": null,
-              "duration": 7452,
+              "duration": 7486,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.clickIn(_selectors.default.checkoutOverview.continue);\ncy.shouldHaveText(_selectors.default.checkoutOverview.errorMsg, 'Error: First Name is required').then(() => {\n  cy.log('El mensaje de error \"Error: First Name is required\" se mostró correctamente al intentar continuar sin completar el campo Nombre.');\n  cy.writeIn(_selectors.default.checkoutOverview.formName, _data.default.buyer.firstName);\n  cy.clickIn(_selectors.default.checkoutOverview.continue);\n  cy.shouldHaveText(_selectors.default.checkoutOverview.errorMsg, 'Error: Last Name is required').then(() => {\n    cy.log('El mensaje de error \"Error: Last Name is required\" se mostró correctamente al intentar continuar sin completar el campo Apellido.');\n    cy.writeIn(_selectors.default.checkoutOverview.formLastName, _data.default.buyer.lastName);\n    cy.clickIn(_selectors.default.checkoutOverview.continue);\n    cy.shouldHaveText(_selectors.default.checkoutOverview.errorMsg, 'Error: Postal Code is required').then(() => {\n      cy.log('El mensaje de error \"Error: Postal Code is required\" se mostró correctamente al intentar continuar sin completar el campo Código Postal.');\n      cy.writeIn(_selectors.default.checkoutOverview.formZip, _data.default.buyer.zip);\n      cy.clickIn(_selectors.default.checkoutOverview.continue);\n      cy.shouldHaveUrl('include', '/checkout-step-two.html');\n    });\n  });\n});",
               "err": {},
-              "uuid": "59a4280d-1d6b-4163-88f5-e02bb4c32fc6",
-              "parentUUID": "624431cf-3278-44bb-8b64-83825d8dcdab",
+              "uuid": "5c274469-54f0-48a4-9add-aca03ede3d3d",
+              "parentUUID": "a8876924-15f1-4260-8346-9eda4c0d741e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "4a0a3f59-a506-4e34-92a9-7e62e9264fe3",
-            "59a4280d-1d6b-4163-88f5-e02bb4c32fc6"
+            "ba6eef71-94ee-49b7-bf19-74c8fd5c971e",
+            "5c274469-54f0-48a4-9add-aca03ede3d3d"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 15977,
+          "duration": 16023,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
