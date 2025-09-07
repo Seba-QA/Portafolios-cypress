@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T06:25:27.636Z",
-    "end": "2025-09-07T06:25:42.786Z",
-    "duration": 15150,
+    "start": "2025-09-07T06:42:14.371Z",
+    "end": "2025-09-07T06:42:28.934Z",
+    "duration": 14563,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "c33060dc-17d3-4f62-bef2-0f5b148d5db1",
+      "uuid": "da83809a-bcf3-4bad-a6da-5b00d7fe9b49",
       "title": "",
       "fullFile": "cypress/e2e/cart/cartActions.cy.js",
       "file": "cypress/e2e/cart/cartActions.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "6ed1cf3e-d9ca-4079-9e87-eae2ead10204",
+          "uuid": "e93df5ef-5ac5-4293-a610-e760510ee9e4",
           "title": "Cart Page actions",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Add products to cart",
               "fullTitle": "Cart Page actions Add products to cart",
               "timedOut": null,
-              "duration": 4865,
+              "duration": 4737,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.get(_selectors.default.products.inventoryItem).each(($item, index) => {\n  cy.wrap($item).within(() => {\n    cy.shouldBeVisible(_selectors.default.products.itemButton);\n    cy.get(_selectors.default.products.itemButton).click();\n  });\n  cy.log(`Producto ${index + 1} agregado al carrito correctamente ✅`);\n});\ncy.get(_selectors.default.products.inventoryItem).its('length').then(total => {\n  cy.get(_selectors.default.cart.badge).should('have.text', `${total}`);\n  cy.get(_selectors.default.cart.badge).should('be.visible');\n});\ncy.shouldBeVisible(_selectors.default.cart.removeButton);",
               "err": {},
-              "uuid": "b3303a74-0e5a-4198-9212-4eecfb087f78",
-              "parentUUID": "6ed1cf3e-d9ca-4079-9e87-eae2ead10204",
+              "uuid": "b7ab7341-39a4-4263-9df5-703cc26dcc39",
+              "parentUUID": "e93df5ef-5ac5-4293-a610-e760510ee9e4",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "remove products from cart",
               "fullTitle": "Cart Page actions remove products from cart",
               "timedOut": null,
-              "duration": 4192,
+              "duration": 4147,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.addToCart();\ncy.get(_selectors.default.cart.link).click();\ncy.get(_selectors.default.cart.badge).then($badge => {\n  const itemCount = parseInt($badge.text());\n  if (itemCount > 0) {\n    cy.get(_selectors.default.cart.removeButton).each($btn => {\n      cy.wrap($btn).click();\n    });\n    cy.get(_selectors.default.cart.badge).should('not.exist');\n    cy.log('Todos los productos han sido eliminados del carrito correctamente ✅');\n  } else {\n    cy.log('El carrito ya está vacío.');\n  }\n});",
               "err": {},
-              "uuid": "dd7abbfa-877a-44fb-95af-37e1ef363728",
-              "parentUUID": "6ed1cf3e-d9ca-4079-9e87-eae2ead10204",
+              "uuid": "afd71995-220f-4425-8a93-b2309acbc9c5",
+              "parentUUID": "e93df5ef-5ac5-4293-a610-e760510ee9e4",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "view the products in the cart",
               "fullTitle": "Cart Page actions view the products in the cart",
               "timedOut": null,
-              "duration": 4471,
+              "duration": 4310,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "const addedProducts = [];\n// 1. Seleccionamos los productos disponibles\ncy.get(_selectors.default.products.inventoryItem).then($items => {\n  const total = $items.length;\n  const randomCount = Math.floor(Math.random() * total) + 1;\n  // 2. Elegimos productos aleatorios\n  const selectedItems = Cypress._.sampleSize($items.toArray(), randomCount);\n  selectedItems.forEach(item => {\n    const productName = Cypress.$(item).find(_selectors.default.products.itemName).text().trim();\n    addedProducts.push(productName);\n    // 3. Agregar cada producto al carrito\n    cy.wrap(item).within(() => {\n      cy.get(_selectors.default.products.itemButton).click();\n    });\n  });\n})\n// 4. Guardamos el array dentro del flujo de Cypress\n.then(() => {\n  cy.wrap(addedProducts).as('addedProducts');\n});\n// 5. Ahora vamos al carrito\ncy.get(_selectors.default.cart.link).click();\ncy.shouldBeVisible(_selectors.default.cart.cartList);\n// 6. Recuperamos el alias cuando Cypress ya lo tiene cargado\ncy.get('@addedProducts').then(addedProducts => {\n  // Validar cantidad\n  cy.get(_selectors.default.cart.cartItem).should('have.length', addedProducts.length);\n  // Validar que los productos estén en el carrito\n  cy.get(_selectors.default.cart.cartItem).each($item => {\n    const nameInCart = Cypress.$($item).find(_selectors.default.products.itemName).text().trim();\n    expect(addedProducts).to.include(nameInCart);\n    cy.log(`Producto en el carrito: ${nameInCart} ✅`);\n  });\n});",
               "err": {},
-              "uuid": "a69b8c30-0272-4cd2-8218-408c2b692900",
-              "parentUUID": "6ed1cf3e-d9ca-4079-9e87-eae2ead10204",
+              "uuid": "1379a452-f1ce-488a-8333-5e0b8b86216f",
+              "parentUUID": "e93df5ef-5ac5-4293-a610-e760510ee9e4",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "b3303a74-0e5a-4198-9212-4eecfb087f78",
-            "dd7abbfa-877a-44fb-95af-37e1ef363728",
-            "a69b8c30-0272-4cd2-8218-408c2b692900"
+            "b7ab7341-39a4-4263-9df5-703cc26dcc39",
+            "afd71995-220f-4425-8a93-b2309acbc9c5",
+            "1379a452-f1ce-488a-8333-5e0b8b86216f"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 13528,
+          "duration": 13194,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

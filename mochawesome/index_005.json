@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T06:26:06.447Z",
-    "end": "2025-09-07T06:26:16.208Z",
-    "duration": 9761,
+    "start": "2025-09-07T06:42:52.393Z",
+    "end": "2025-09-07T06:43:02.104Z",
+    "duration": 9711,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "74d86435-c2ee-4f6f-9c85-0c9f9bd254f0",
+      "uuid": "38412ef7-734d-4a7c-93be-3a55d36fe397",
       "title": "",
       "fullFile": "cypress/e2e/checkout/checkoutForm.cy.js",
       "file": "cypress/e2e/checkout/checkoutForm.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "0736656b-abd8-485c-ace8-9312c8201221",
+          "uuid": "a53475f9-4584-4335-83ab-a7e4c634933b",
           "title": "Validate Checkout Form",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "enter buyer information and continue",
               "fullTitle": "Validate Checkout Form enter buyer information and continue",
               "timedOut": null,
-              "duration": 8430,
+              "duration": 8388,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.clickIn(_selectors.default.checkoutOverview.continue);\ncy.waitSeconds(1);\nif (cy.shouldBeVisible(_selectors.default.checkoutOverview.errorMsg)) {\n  cy.fillOutCheckoutForm(_data.default.buyer.firstName, _data.default.buyer.lastName, _data.default.buyer.zip);\n  cy.clickIn(_selectors.default.checkoutOverview.continue);\n  cy.shouldHaveUrl('include', '/checkout-step-two.html');\n} else {\n  cy.log('No se mostró ningún mensaje de error al intentar continuar sin completar el formulario.');\n}",
               "err": {},
-              "uuid": "ab9b53d7-bb82-41d5-a9df-5bf9db2ff0d5",
-              "parentUUID": "0736656b-abd8-485c-ace8-9312c8201221",
+              "uuid": "62b8b7c5-86ca-486e-b54e-4a8a4ffaeb49",
+              "parentUUID": "a53475f9-4584-4335-83ab-a7e4c634933b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "ab9b53d7-bb82-41d5-a9df-5bf9db2ff0d5"
+            "62b8b7c5-86ca-486e-b54e-4a8a4ffaeb49"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 8430,
+          "duration": 8388,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
