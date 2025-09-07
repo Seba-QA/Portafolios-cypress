@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T05:51:42.188Z",
-    "end": "2025-09-07T05:51:50.890Z",
-    "duration": 8702,
+    "start": "2025-09-07T05:57:59.936Z",
+    "end": "2025-09-07T05:58:08.761Z",
+    "duration": 8825,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "7083860d-096e-4171-8403-433229fdf975",
+      "uuid": "d30ec42e-ea80-4f27-8645-37de2eb2cabf",
       "title": "",
       "fullFile": "cypress/e2e/cart/cartNavigation.cy.js",
       "file": "cypress/e2e/cart/cartNavigation.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "073a9455-4f3c-494c-8619-3883b8a908d2",
+          "uuid": "d2fe60ee-005e-4cf1-a503-b7af6054b4ba",
           "title": "Cart page navigation",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "go to checkout from cart",
               "fullTitle": "Cart page navigation go to checkout from cart",
               "timedOut": null,
-              "duration": 7402,
+              "duration": 7499,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "const expectedCart = [];\ncy.get(_selectors.default.cart.cartItem).first().within(() => {\n  cy.get(_selectors.default.products.itemName).invoke('text').then(firstItemName => {\n    expectedCart.push(firstItemName.trim());\n    cy.log(`Producto esperado en el carrito: ${firstItemName} ✅`);\n  });\n});\ncy.then(() => {\n  cy.log(`Contenido acumulado de expectedCart: ${JSON.stringify(expectedCart)}`);\n  console.log(\"Contenido acumulado en consola:\", expectedCart);\n});\ncy.clickIn(_selectors.default.cart.checkout).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-step-one.html');\n  cy.log('Navegación a la página de checkout correcta ✅');\n});\ncy.writeIn(_selectors.default.checkoutOverview.formName, _data.default.personalData.firstName);\ncy.writeIn(_selectors.default.checkoutOverview.formLastName, _data.default.personalData.lastName);\ncy.writeIn(_selectors.default.checkoutOverview.formZip, _data.default.personalData.zip);\ncy.clickIn(_selectors.default.checkoutOverview.continue).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-step-two.html');\n  cy.log('Navegación a la página de checkout step two correcta ✅');\n});",
               "err": {},
-              "uuid": "32e7dcbc-5aa6-471d-8c16-0984a5020809",
-              "parentUUID": "073a9455-4f3c-494c-8619-3883b8a908d2",
+              "uuid": "0367ec4a-aefe-4d40-978a-8f8ea3530da1",
+              "parentUUID": "d2fe60ee-005e-4cf1-a503-b7af6054b4ba",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "32e7dcbc-5aa6-471d-8c16-0984a5020809"
+            "0367ec4a-aefe-4d40-978a-8f8ea3530da1"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 7402,
+          "duration": 7499,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

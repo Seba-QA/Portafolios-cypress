@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T05:52:27.516Z",
-    "end": "2025-09-07T05:52:33.005Z",
-    "duration": 5489,
+    "start": "2025-09-07T05:58:45.731Z",
+    "end": "2025-09-07T05:58:51.279Z",
+    "duration": 5548,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "0236d145-c137-422f-9c9b-0c306bba7f91",
+      "uuid": "21050900-5a12-4a95-87df-e4b23d42f0ba",
       "title": "",
       "fullFile": "cypress/e2e/products/productsDetails.cy.js",
       "file": "cypress/e2e/products/productsDetails.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "1c2d4619-034b-4189-90ef-79ade1cce104",
+          "uuid": "e89b8154-5ee6-4682-b09a-ad06d37fd8a5",
           "title": "Products Details Page",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "acces the details of a random product",
               "fullTitle": "Products Details Page acces the details of a random product",
               "timedOut": null,
-              "duration": 4221,
+              "duration": 4272,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.get(_selectors.default.products.inventoryItem).its('length').then(len => {\n  const idx = Cypress._.random(0, len - 1);\n  cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).invoke('text').then(selectedProductName => {\n    cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).click();\n    cy.location('pathname', {\n      timeout: 15000\n    }).should('include', 'inventory-item.html');\n    cy.get(_selectors.default.productDetails.itemName).should('be.visible').and('have.text', selectedProductName.trim());\n    cy.shouldBeVisible(_selectors.default.productDetails.itemImg);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemPrice);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemDesc);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemButton);\n  });\n});",
               "err": {},
-              "uuid": "9b5f2560-96ea-486c-8142-6ba26fc88620",
-              "parentUUID": "1c2d4619-034b-4189-90ef-79ade1cce104",
+              "uuid": "e4d7792e-2ff1-406a-934e-05398ffcd476",
+              "parentUUID": "e89b8154-5ee6-4682-b09a-ad06d37fd8a5",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "9b5f2560-96ea-486c-8142-6ba26fc88620"
+            "e4d7792e-2ff1-406a-934e-05398ffcd476"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4221,
+          "duration": 4272,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
