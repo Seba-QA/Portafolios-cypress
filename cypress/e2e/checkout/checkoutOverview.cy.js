@@ -28,7 +28,7 @@ import data from '../../fixtures/data.json';
 
                 cy.get(selectors.checkoutOverview.subtotal).invoke('text').then((subtotalText) => {
                     const subtotal = parseFloat(subtotalText.replace('Item total: $', '').trim());
-                    expect(subtotal).to.eq(calculatedSum);
+                    expect(calculatedSum.toFixed(2)).to.eq(subtotal.toFixed(2));
                 });
 
 
@@ -37,7 +37,8 @@ import data from '../../fixtures/data.json';
 
                     cy.get(selectors.checkoutOverview.total).invoke('text').then((totalText) => {
                         const total = parseFloat(totalText.replace('Total: $', '').trim());
-                        expect(total).to.eq(calculatedSum + tax);
+                        const expectedTotal = calculatedSum + tax;
+                        expect(expectedTotal.toFixed(2)).to.eq(total.toFixed(2));
                     });
                 });
             });
