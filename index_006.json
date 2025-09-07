@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T05:49:41.796Z",
-    "end": "2025-09-07T05:49:52.580Z",
-    "duration": 10784,
+    "start": "2025-09-07T05:52:15.361Z",
+    "end": "2025-09-07T05:52:26.052Z",
+    "duration": 10691,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "a23eeb5a-599f-42a1-8bb4-62d3b3dce3c9",
+      "uuid": "74637ac7-fef4-4b9d-bda5-b9f1fb32ae80",
       "title": "",
       "fullFile": "cypress/e2e/checkout/checkoutOverview.cy.js",
       "file": "cypress/e2e/checkout/checkoutOverview.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ea169daa-2018-46d9-b4c8-8568f4c0d874",
+          "uuid": "0991e391-3f91-48a9-a428-c305bdf05fb2",
           "title": "purchase summary validation",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "finalize purchase and validate completion",
               "fullTitle": "purchase summary validation finalize purchase and validate completion",
               "timedOut": null,
-              "duration": 9463,
+              "duration": 9410,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.clickIn(_selectors.default.checkoutOverview.finish).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-complete.html');\n  cy.log('Navegación a la página de checkout complete correcta ✅');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgComplete, 'Thank you for your order!');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgText, 'Your order has been dispatched, and will arrive just as fast as the pony can get there!');\n  cy.clickIn(_selectors.default.checkoutOverview.backHome).then(() => {\n    cy.shouldHaveUrl('include', '/inventory.html');\n    cy.log('Navegación a la página de productos correcta ✅');\n  });\n});",
               "err": {},
-              "uuid": "eedb7cfb-d31c-4b63-b9bd-66b004f2e165",
-              "parentUUID": "ea169daa-2018-46d9-b4c8-8568f4c0d874",
+              "uuid": "f91e9e1d-4cc8-4c1b-a8fb-58263ec26173",
+              "parentUUID": "0991e391-3f91-48a9-a428-c305bdf05fb2",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "eedb7cfb-d31c-4b63-b9bd-66b004f2e165"
+            "f91e9e1d-4cc8-4c1b-a8fb-58263ec26173"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 9463,
+          "duration": 9410,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

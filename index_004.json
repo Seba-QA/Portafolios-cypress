@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T05:49:18.289Z",
-    "end": "2025-09-07T05:49:28.984Z",
-    "duration": 10695,
+    "start": "2025-09-07T05:51:52.303Z",
+    "end": "2025-09-07T05:52:02.881Z",
+    "duration": 10578,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "7d7ba8d9-d7c9-4a8a-9aef-735125c2c7fa",
+      "uuid": "1760d954-f6ec-4ffb-bb92-9885b7bc9284",
       "title": "",
       "fullFile": "cypress/e2e/checkout/checkoutFinish.cy.js",
       "file": "cypress/e2e/checkout/checkoutFinish.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "2153beb3-c466-491f-b89d-bd5d9676e1cf",
+          "uuid": "8f9e39c9-7150-4755-8fe0-2506462bd31e",
           "title": "Cancel checkout",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "cancel from checkout overview",
               "fullTitle": "Cancel checkout cancel from checkout overview",
               "timedOut": null,
-              "duration": 9329,
+              "duration": 9290,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.clickIn(_selectors.default.checkoutOverview.continue);\ncy.clickIn(_selectors.default.checkoutOverview.cancel).then(() => {\n  cy.shouldHaveUrl('include', '/inventory.html');\n  cy.log('Navegación a la página de inventario correcta ✅');\n});",
               "err": {},
-              "uuid": "2cfa7a27-7de1-4821-b90d-7f961467e676",
-              "parentUUID": "2153beb3-c466-491f-b89d-bd5d9676e1cf",
+              "uuid": "02b46f6e-0370-4356-b7a9-68eb8843b612",
+              "parentUUID": "8f9e39c9-7150-4755-8fe0-2506462bd31e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "2cfa7a27-7de1-4821-b90d-7f961467e676"
+            "02b46f6e-0370-4356-b7a9-68eb8843b612"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 9329,
+          "duration": 9290,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
