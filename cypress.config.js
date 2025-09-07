@@ -8,6 +8,7 @@ module.exports = defineConfig({
     // Opciones para Mochawesome
     mochawesomeReporterOptions: {
       reportDir: "cypress/reports/mochawesome",
+      reportFilename: "index",
       overwrite: false,
       html: false,    // solo JSON; el HTML lo generamos luego con 'marge'
       json: true
