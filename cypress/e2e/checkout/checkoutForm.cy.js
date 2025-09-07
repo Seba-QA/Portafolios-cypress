@@ -15,7 +15,7 @@ import data from '../../fixtures/data.json';
             cy.clickIn(selectors.cart.checkout);
             cy.shouldHaveUrl('include', '/checkout-step-one.html');
         });
-        it.only('enter buyer information and continue', () => {
+        it('enter buyer information and continue', () => {
             cy.clickIn(selectors.checkoutOverview.continue);
             cy.waitSeconds(1);
             if (cy.shouldBeVisible(selectors.checkoutOverview.errorMsg)) {

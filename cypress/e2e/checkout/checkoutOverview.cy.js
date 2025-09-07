@@ -42,7 +42,7 @@ import data from '../../fixtures/data.json';
                 });
             });
         });
-        it.only('finalize purchase and validate completion', () => {
+        it('finalize purchase and validate completion', () => {
             cy.clickIn(selectors.checkoutOverview.finish). then(() => {
                 cy.shouldHaveUrl('include', '/checkout-complete.html');
                 cy.log('Navegación a la página de checkout complete correcta ✅');

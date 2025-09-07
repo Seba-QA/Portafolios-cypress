@@ -21,7 +21,7 @@ import data from '../../fixtures/data.json';
                 cy.log('Navegación a la página de carrito correcta ✅');
             });
         });
-        it.only('cancel from checkout overview', () => {
+        it('cancel from checkout overview', () => {
             cy.clickIn(selectors.checkoutOverview.continue);
             cy.clickIn(selectors.checkoutOverview.cancel). then(() => {
                 cy.shouldHaveUrl('include', '/inventory.html');

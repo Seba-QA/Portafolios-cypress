@@ -60,7 +60,7 @@ import data from '../../fixtures/data.json';
                 expect(actualCart.length).to.equal(expectedCart.length, 'La cantidad de productos en el carrito es correcta ✅');
             });
         });
-        it.only('go to checkout from cart', () => {
+        it('go to checkout from cart', () => {
             const expectedCart = [];
             cy.get(selectors.cart.cartItem).first().within(() => {
                 cy.get(selectors.products.itemName).invoke('text').then((firstItemName) => {
