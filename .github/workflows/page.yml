@@ -25,9 +25,6 @@ jobs:
         run: npm run report:full
         continue-on-error: true
 
-      - name: Insertar fecha y hora en el reporte HTML
-        run: node insert-date.js
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

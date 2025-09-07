@@ -76,12 +76,16 @@ cypress/reports/
 ├── junit/
 │
 └── mochawesome/
+    ├── index.html 
+    └── videos/    
 ```
 
 Ejemplo de ejecución:
-- Al ejecutar `npm run report:full`, se limpia la carpeta de reportes anteriores.
-- Se generan los archivos JUnit y Mochawesome.
-- Se crea un reporte HTML unificado en `cypress/reports/mochawesome/mochawesome.html` para una visualización completa.
+- Al ejecutar `npm run report:full`.
+- Se limpia la carpeta de reportes anteriores.
+- Se ejecutan todas las pruebas.
+- Se genera carpeta junit con sus .xml por test
+- Se genera carpeta mochawesome con su index.html y carpeta videos
 
 ---
 
