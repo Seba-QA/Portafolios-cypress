@@ -1,14 +1,14 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 1,
-    "passes": 1,
+    "tests": 2,
+    "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T06:43:03.570Z",
-    "end": "2025-09-07T06:43:14.341Z",
-    "duration": 10771,
-    "testsRegistered": 1,
+    "start": "2025-09-07T06:52:10.168Z",
+    "end": "2025-09-07T06:52:30.031Z",
+    "duration": 19863,
+    "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "9ebed1e5-71c1-474c-90be-de9c9ca82e12",
+      "uuid": "652fd4df-ab34-4389-a9e3-e29cb7c48725",
       "title": "",
       "fullFile": "cypress/e2e/checkout/checkoutOverview.cy.js",
       "file": "cypress/e2e/checkout/checkoutOverview.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "07944fd4-6f12-43ed-bb07-23e65b8bf8d8",
+          "uuid": "6a0990de-b701-46cb-8b11-bd2f7817495f",
           "title": "purchase summary validation",
           "fullFile": "",
           "file": "",
@@ -35,10 +35,28 @@
           "afterHooks": [],
           "tests": [
             {
+              "title": "validate purchase summary details",
+              "fullTitle": "purchase summary validation validate purchase summary details",
+              "timedOut": null,
+              "duration": 9249,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let calculatedSum = 0;\ncy.get(_selectors.default.checkoutOverview.cartItem).each($item => {\n  cy.wrap($item).find(_selectors.default.checkoutOverview.itemPrice).invoke('text').then(priceText => {\n    const price = parseFloat(priceText.replace('$', '').trim());\n    calculatedSum += price;\n  });\n}).then(() => {\n  cy.get(_selectors.default.checkoutOverview.subtotal).invoke('text').then(subtotalText => {\n    const subtotal = parseFloat(subtotalText.replace('Item total: $', '').trim());\n    expect(subtotal).to.eq(calculatedSum);\n  });\n  cy.get(_selectors.default.checkoutOverview.tax).invoke('text').then(taxText => {\n    const tax = parseFloat(taxText.replace('Tax: $', '').trim());\n    cy.get(_selectors.default.checkoutOverview.total).invoke('text').then(totalText => {\n      const total = parseFloat(totalText.replace('Total: $', '').trim());\n      expect(total).to.eq(calculatedSum + tax);\n    });\n  });\n});",
+              "err": {},
+              "uuid": "38d9ab79-92b4-4fd7-99e1-77ac1f5edff8",
+              "parentUUID": "6a0990de-b701-46cb-8b11-bd2f7817495f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
               "title": "finalize purchase and validate completion",
               "fullTitle": "purchase summary validation finalize purchase and validate completion",
               "timedOut": null,
-              "duration": 9458,
+              "duration": 9300,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +65,21 @@
               "context": null,
               "code": "cy.clickIn(_selectors.default.checkoutOverview.finish).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-complete.html');\n  cy.log('Navegación a la página de checkout complete correcta ✅');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgComplete, 'Thank you for your order!');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgText, 'Your order has been dispatched, and will arrive just as fast as the pony can get there!');\n  cy.clickIn(_selectors.default.checkoutOverview.backHome).then(() => {\n    cy.shouldHaveUrl('include', '/inventory.html');\n    cy.log('Navegación a la página de productos correcta ✅');\n  });\n});",
               "err": {},
-              "uuid": "ff13d543-c7c5-46f5-9cda-d89760e126a0",
-              "parentUUID": "07944fd4-6f12-43ed-bb07-23e65b8bf8d8",
+              "uuid": "def5e223-e0bc-4b01-b289-7bde8ecf61a1",
+              "parentUUID": "6a0990de-b701-46cb-8b11-bd2f7817495f",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "ff13d543-c7c5-46f5-9cda-d89760e126a0"
+            "38d9ab79-92b4-4fd7-99e1-77ac1f5edff8",
+            "def5e223-e0bc-4b01-b289-7bde8ecf61a1"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 9458,
+          "duration": 18549,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

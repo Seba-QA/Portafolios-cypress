@@ -1,14 +1,14 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 1,
-    "passes": 1,
+    "tests": 2,
+    "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T06:42:30.351Z",
-    "end": "2025-09-07T06:42:38.976Z",
-    "duration": 8625,
-    "testsRegistered": 1,
+    "start": "2025-09-07T06:51:12.944Z",
+    "end": "2025-09-07T06:51:29.197Z",
+    "duration": 16253,
+    "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "63250f55-a755-4e9c-a595-103d8a1eafa4",
+      "uuid": "8ea16322-d51b-4a85-815f-94fb11708855",
       "title": "",
       "fullFile": "cypress/e2e/cart/cartNavigation.cy.js",
       "file": "cypress/e2e/cart/cartNavigation.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e255e576-c9c7-4f5f-bf88-1d953b9a23e5",
+          "uuid": "928dc49b-20f9-4da6-9516-d6c575693ffa",
           "title": "Cart page navigation",
           "fullFile": "",
           "file": "",
@@ -35,10 +35,28 @@
           "afterHooks": [],
           "tests": [
             {
+              "title": "continue shopping from cart)",
+              "fullTitle": "Cart page navigation continue shopping from cart)",
+              "timedOut": null,
+              "duration": 7694,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const expectedCart = [];\ncy.get(_selectors.default.cart.cartItem).first().within(() => {\n  cy.get(_selectors.default.products.itemName).invoke('text').then(firstItemName => {\n    expectedCart.push(firstItemName.trim());\n    cy.log(`Producto esperado en el carrito: ${firstItemName} ✅`);\n  });\n});\ncy.then(() => {\n  cy.log(`Contenido acumulado de expectedCart: ${JSON.stringify(expectedCart)}`);\n  console.log(\"Contenido acumulado en consola:\", expectedCart);\n});\ncy.clickIn(_selectors.default.cart.continueShopping).then(() => {\n  cy.waitSeconds(1);\n  cy.shouldHaveUrl('include', '/inventory.html');\n  cy.log('Navegación a la página de productos correcta ✅');\n});\ncy.addToCart().then(newName => {\n  expectedCart.push(newName);\n  cy.log(`Producto esperado en el carrito: ${newName} ✅`);\n});\ncy.scrollTo(0, 0);\ncy.clickIn(_selectors.default.cart.link).then(() => {\n  cy.shouldHaveUrl('include', '/cart.html');\n  cy.log('Navegación a la página de productos correcta ✅');\n});\ncy.then(() => {\n  cy.log(`Contenido acumulado de expectedCart: ${JSON.stringify(expectedCart)}`);\n  console.log(\"Contenido acumulado en consola:\", expectedCart);\n});\ncy.get(_selectors.default.cart.cartItem).then($items => {\n  const actualCart = [];\n  Cypress.$($items).each((_, item) => {\n    const name = Cypress.$(item).find(_selectors.default.products.itemName).text().trim();\n    actualCart.push(name);\n  });\n  expectedCart.forEach(product => {\n    expect(actualCart).to.include(product, 'El producto \"${product}\" está en el carrito ✅');\n  });\n  expect(actualCart.length).to.equal(expectedCart.length, 'La cantidad de productos en el carrito es correcta ✅');\n});",
+              "err": {},
+              "uuid": "68454e37-1fe4-41f8-8c23-1fb3fd014f52",
+              "parentUUID": "928dc49b-20f9-4da6-9516-d6c575693ffa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
               "title": "go to checkout from cart",
               "fullTitle": "Cart page navigation go to checkout from cart",
               "timedOut": null,
-              "duration": 7395,
+              "duration": 7231,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +65,21 @@
               "context": null,
               "code": "const expectedCart = [];\ncy.get(_selectors.default.cart.cartItem).first().within(() => {\n  cy.get(_selectors.default.products.itemName).invoke('text').then(firstItemName => {\n    expectedCart.push(firstItemName.trim());\n    cy.log(`Producto esperado en el carrito: ${firstItemName} ✅`);\n  });\n});\ncy.then(() => {\n  cy.log(`Contenido acumulado de expectedCart: ${JSON.stringify(expectedCart)}`);\n  console.log(\"Contenido acumulado en consola:\", expectedCart);\n});\ncy.clickIn(_selectors.default.cart.checkout).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-step-one.html');\n  cy.log('Navegación a la página de checkout correcta ✅');\n});\ncy.writeIn(_selectors.default.checkoutOverview.formName, _data.default.personalData.firstName);\ncy.writeIn(_selectors.default.checkoutOverview.formLastName, _data.default.personalData.lastName);\ncy.writeIn(_selectors.default.checkoutOverview.formZip, _data.default.personalData.zip);\ncy.clickIn(_selectors.default.checkoutOverview.continue).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-step-two.html');\n  cy.log('Navegación a la página de checkout step two correcta ✅');\n});",
               "err": {},
-              "uuid": "d72510eb-6d6a-4579-89ca-236c31e0ab65",
-              "parentUUID": "e255e576-c9c7-4f5f-bf88-1d953b9a23e5",
+              "uuid": "60a1884f-1d7f-4c52-969f-119acf024afc",
+              "parentUUID": "928dc49b-20f9-4da6-9516-d6c575693ffa",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d72510eb-6d6a-4579-89ca-236c31e0ab65"
+            "68454e37-1fe4-41f8-8c23-1fb3fd014f52",
+            "60a1884f-1d7f-4c52-969f-119acf024afc"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 7395,
+          "duration": 14925,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
