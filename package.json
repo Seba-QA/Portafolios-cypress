@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "cypress:open": "cypress open",
+    "report:merge": "mochawesome-merge cypress/reports/mochawesome/*.json --output cypress/reports/mochawesome/merged.json",
     "report": "cypress run",
-    "report:generate": "marge cypress/reports/mochawesome/index.json --reportDir cypress/reports --reportFilename index.html --inline"
+    "report:generate": "marge cypress/reports/mochawesome/merged.json --reportDir cypress/reports/mochawesome --reportFilename index.html --inline"
   },
   "author": "Sebastian",
   "license": "ISC",
