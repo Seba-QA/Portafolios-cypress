@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T06:58:26.146Z",
-    "end": "2025-09-07T06:58:32.354Z",
-    "duration": 6208,
+    "start": "2025-09-07T07:03:30.494Z",
+    "end": "2025-09-07T07:03:36.656Z",
+    "duration": 6162,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "da09cf57-3228-4e77-9ce3-683c99175339",
+      "uuid": "cfd45d62-af35-4c11-b499-8d6b76c06185",
       "title": "",
       "fullFile": "cypress/e2e/auth/logout.cy.js",
       "file": "cypress/e2e/auth/logout.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "5546f6bd-7882-482b-b216-3b6f7f4b4751",
+          "uuid": "f7558036-83fe-46a7-92df-cd1e7a7edb53",
           "title": "Logout",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Logout successfully",
               "fullTitle": "Logout Logout successfully",
               "timedOut": null,
-              "duration": 4876,
+              "duration": 4862,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.get(_selectors.default.logout.burgerMenu).click();\ncy.get(_selectors.default.logout.logoutLink).click();\ncy.url().should('include', '/');\ncy.get(_selectors.default.login.loginButton).should('be.visible');",
               "err": {},
-              "uuid": "60a5323f-0e6b-4729-968f-3c19f67864eb",
-              "parentUUID": "5546f6bd-7882-482b-b216-3b6f7f4b4751",
+              "uuid": "44e08348-6f4f-43b3-83c4-6bfbc7d1a229",
+              "parentUUID": "f7558036-83fe-46a7-92df-cd1e7a7edb53",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "60a5323f-0e6b-4729-968f-3c19f67864eb"
+            "44e08348-6f4f-43b3-83c4-6bfbc7d1a229"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4876,
+          "duration": 4862,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

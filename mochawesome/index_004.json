@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T06:59:08.441Z",
-    "end": "2025-09-07T06:59:28.410Z",
-    "duration": 19969,
+    "start": "2025-09-07T07:04:11.885Z",
+    "end": "2025-09-07T07:04:31.723Z",
+    "duration": 19838,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "8ebf9957-1b6d-49c0-8cf8-28d09ed1a9ef",
+      "uuid": "0256ad07-8736-498c-8dbb-4ce54b4ed326",
       "title": "",
       "fullFile": "cypress/e2e/checkout/checkoutFinish.cy.js",
       "file": "cypress/e2e/checkout/checkoutFinish.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ae5ff561-1048-47d7-b027-7e9912bb7a9d",
+          "uuid": "09f1677a-fc16-4605-9329-88ae8c4dceb8",
           "title": "Cancel checkout",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "cancel from checkout information",
               "fullTitle": "Cancel checkout cancel from checkout information",
               "timedOut": null,
-              "duration": 9356,
+              "duration": 9325,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.clickIn(_selectors.default.checkoutOverview.cancel).then(() => {\n  cy.shouldHaveUrl('include', '/cart.html');\n  cy.log('Navegación a la página de carrito correcta ✅');\n});",
               "err": {},
-              "uuid": "b0255ac5-26dd-4199-ab1d-42ee539dae61",
-              "parentUUID": "ae5ff561-1048-47d7-b027-7e9912bb7a9d",
+              "uuid": "9c60fdd4-313f-4b36-93c7-ebf5be818dad",
+              "parentUUID": "09f1677a-fc16-4605-9329-88ae8c4dceb8",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "cancel from checkout overview",
               "fullTitle": "Cancel checkout cancel from checkout overview",
               "timedOut": null,
-              "duration": 9219,
+              "duration": 9149,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.clickIn(_selectors.default.checkoutOverview.continue);\ncy.clickIn(_selectors.default.checkoutOverview.cancel).then(() => {\n  cy.shouldHaveUrl('include', '/inventory.html');\n  cy.log('Navegación a la página de inventario correcta ✅');\n});",
               "err": {},
-              "uuid": "1f3830ce-105b-420c-9b07-8020c848ad4a",
-              "parentUUID": "ae5ff561-1048-47d7-b027-7e9912bb7a9d",
+              "uuid": "06e50929-1be5-4a5e-8681-38cc8e994244",
+              "parentUUID": "09f1677a-fc16-4605-9329-88ae8c4dceb8",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "b0255ac5-26dd-4199-ab1d-42ee539dae61",
-            "1f3830ce-105b-420c-9b07-8020c848ad4a"
+            "9c60fdd4-313f-4b36-93c7-ebf5be818dad",
+            "06e50929-1be5-4a5e-8681-38cc8e994244"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 18575,
+          "duration": 18474,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

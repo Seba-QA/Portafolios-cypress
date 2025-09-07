@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T07:00:17.479Z",
-    "end": "2025-09-07T07:00:27.843Z",
-    "duration": 10364,
+    "start": "2025-09-07T07:05:20.216Z",
+    "end": "2025-09-07T07:05:30.546Z",
+    "duration": 10330,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "2ac0668e-6929-4b04-b1bc-de2234604f2e",
+      "uuid": "e8e78bd4-5fad-415e-9e46-6a6fd58b164a",
       "title": "",
       "fullFile": "cypress/e2e/products/productsPage.cy.js",
       "file": "cypress/e2e/products/productsPage.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "7d8ee6d4-42c4-428e-a7b0-0d8bd6ea8e02",
+          "uuid": "0d0edaff-5501-4054-90b1-3100f778fa29",
           "title": "Products Page Tests",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "View peoduct list",
               "fullTitle": "Products Page Tests View peoduct list",
               "timedOut": null,
-              "duration": 4327,
+              "duration": 4336,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.shouldBeVisible(_selectors.default.products.inventoryContainer);\ncy.get(_selectors.default.products.inventoryItem).each(($item, index) => {\n  cy.wrap($item).within(() => {\n    cy.shouldBeVisible(_selectors.default.products.itemImg);\n    cy.shouldBeVisible(_selectors.default.products.itemName);\n    cy.shouldBeVisible(_selectors.default.products.itemPrice);\n    cy.shouldBeVisible(_selectors.default.products.itemButton);\n  });\n  cy.log(`Producto agregado: ${$item.find(_selectors.default.products.itemName).text()} ✅`);\n});",
               "err": {},
-              "uuid": "1d6ec1f9-f02c-4e8f-87da-e68e58cf886e",
-              "parentUUID": "7d8ee6d4-42c4-428e-a7b0-0d8bd6ea8e02",
+              "uuid": "130b4ef1-df3d-44c4-9d8c-ba136da72cc1",
+              "parentUUID": "0d0edaff-5501-4054-90b1-3100f778fa29",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "filter and sort products",
               "fullTitle": "Products Page Tests filter and sort products",
               "timedOut": null,
-              "duration": 4551,
+              "duration": 4557,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.get('.product_sort_container').should('be.visible');\n// Validar que la lista de productos esté ordenada descendentemente (Z-A)\ncy.get('.product_sort_container').select('za');\ncy.validateOrder(_selectors.default.products.inventoryItem, 'desc', 'text');\ncy.logOrder(_selectors.default.products.inventoryItem, _selectors.default.products.itemName);\n// Validar que la lista de productos esté ordenada por defecto (A-Z)\ncy.get('.product_sort_container').select('az');\ncy.validateOrder(_selectors.default.products.inventoryItem, 'asc', 'text');\ncy.logOrder(_selectors.default.products.inventoryItem, _selectors.default.products.itemName);\n// Validar que la lista de productos esté ordenada por precio menor a mayor\ncy.get('.product_sort_container').select('lohi');\ncy.validateOrder(_selectors.default.products.inventoryItem, 'asc', 'number');\ncy.logOrder(_selectors.default.products.inventoryItem, _selectors.default.products.itemName);\n// Validar que la lista de productos esté ordenada por precio mayor a menor\ncy.get('.product_sort_container').select('hilo');\ncy.validateOrder(_selectors.default.products.inventoryItem, 'desc', 'number');\ncy.logOrder(_selectors.default.products.inventoryItem, _selectors.default.products.itemName);",
               "err": {},
-              "uuid": "db7ec22e-7187-4d4c-8dff-58ce2fe83ad8",
-              "parentUUID": "7d8ee6d4-42c4-428e-a7b0-0d8bd6ea8e02",
+              "uuid": "c5864a5a-6541-4ed2-940b-0c68cbc63409",
+              "parentUUID": "0d0edaff-5501-4054-90b1-3100f778fa29",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "1d6ec1f9-f02c-4e8f-87da-e68e58cf886e",
-            "db7ec22e-7187-4d4c-8dff-58ce2fe83ad8"
+            "130b4ef1-df3d-44c4-9d8c-ba136da72cc1",
+            "c5864a5a-6541-4ed2-940b-0c68cbc63409"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 8878,
+          "duration": 8893,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
