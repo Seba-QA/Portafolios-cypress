@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-06T22:54:01.782Z",
-    "end": "2025-09-06T22:54:07.650Z",
-    "duration": 5868,
+    "start": "2025-09-07T05:49:54.007Z",
+    "end": "2025-09-07T05:49:59.608Z",
+    "duration": 5601,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,49 +18,49 @@
   },
   "results": [
     {
-      "uuid": "12d7619e-4ba9-445b-b656-077fe5b55cd4",
+      "uuid": "0f0327d0-ee41-4742-85ec-3a6f70e91659",
       "title": "",
-      "fullFile": "cypress/e2e/auth/logout.cy.js",
-      "file": "cypress/e2e/auth/logout.cy.js",
+      "fullFile": "cypress/e2e/products/productsDetails.cy.js",
+      "file": "cypress/e2e/products/productsDetails.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "103f66cf-12ba-4810-849f-6132c47b3b49",
-          "title": "Logout",
+          "uuid": "be6f505e-2030-4d8f-9eb6-0c613b82d1b8",
+          "title": "Products Details Page",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Logout successfully",
-              "fullTitle": "Logout Logout successfully",
+              "title": "acces the details of a random product",
+              "fullTitle": "Products Details Page acces the details of a random product",
               "timedOut": null,
-              "duration": 4558,
+              "duration": 4251,
               "state": "passed",
               "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.get(_selectors.default.logout.burgerMenu).click();\ncy.get(_selectors.default.logout.logoutLink).click();\ncy.url().should('include', '/');\ncy.get(_selectors.default.login.loginButton).should('be.visible');",
+              "code": "cy.get(_selectors.default.products.inventoryItem).its('length').then(len => {\n  const idx = Cypress._.random(0, len - 1);\n  cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).invoke('text').then(selectedProductName => {\n    cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).click();\n    cy.location('pathname', {\n      timeout: 15000\n    }).should('include', 'inventory-item.html');\n    cy.get(_selectors.default.productDetails.itemName).should('be.visible').and('have.text', selectedProductName.trim());\n    cy.shouldBeVisible(_selectors.default.productDetails.itemImg);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemPrice);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemDesc);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemButton);\n  });\n});",
               "err": {},
-              "uuid": "4e098831-236d-404f-9738-0a3044abb011",
-              "parentUUID": "103f66cf-12ba-4810-849f-6132c47b3b49",
+              "uuid": "2f921b03-6e56-424e-893b-2cdbb4e3e0ba",
+              "parentUUID": "be6f505e-2030-4d8f-9eb6-0c613b82d1b8",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "4e098831-236d-404f-9738-0a3044abb011"
+            "2f921b03-6e56-424e-893b-2cdbb4e3e0ba"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4558,
+          "duration": 4251,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -83,7 +83,7 @@
     "mochawesome": {
       "options": {
         "quiet": false,
-        "reportFilename": "mochawesome",
+        "reportFilename": "index",
         "saveHtml": false,
         "saveJson": true,
         "consoleReporter": "spec",
@@ -96,6 +96,7 @@
       "options": {
         "id": "default",
         "reportDir": "cypress/reports/mochawesome",
+        "reportFilename": "index",
         "overwrite": false,
         "html": false,
         "json": true

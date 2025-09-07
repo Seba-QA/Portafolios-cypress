@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-06T22:55:09.841Z",
-    "end": "2025-09-06T22:55:15.317Z",
-    "duration": 5476,
+    "start": "2025-09-07T05:49:41.796Z",
+    "end": "2025-09-07T05:49:52.580Z",
+    "duration": 10784,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,49 +18,49 @@
   },
   "results": [
     {
-      "uuid": "48ae36b7-53db-431c-9977-313b088d71b0",
+      "uuid": "a23eeb5a-599f-42a1-8bb4-62d3b3dce3c9",
       "title": "",
-      "fullFile": "cypress/e2e/products/productsDetails.cy.js",
-      "file": "cypress/e2e/products/productsDetails.cy.js",
+      "fullFile": "cypress/e2e/checkout/checkoutOverview.cy.js",
+      "file": "cypress/e2e/checkout/checkoutOverview.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "d6165b64-3674-421b-8841-d857800fd155",
-          "title": "Products Details Page",
+          "uuid": "ea169daa-2018-46d9-b4c8-8568f4c0d874",
+          "title": "purchase summary validation",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "acces the details of a random product",
-              "fullTitle": "Products Details Page acces the details of a random product",
+              "title": "finalize purchase and validate completion",
+              "fullTitle": "purchase summary validation finalize purchase and validate completion",
               "timedOut": null,
-              "duration": 4220,
+              "duration": 9463,
               "state": "passed",
-              "speed": "fast",
+              "speed": "medium",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.get(_selectors.default.products.inventoryItem).its('length').then(len => {\n  const idx = Cypress._.random(0, len - 1);\n  cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).invoke('text').then(selectedProductName => {\n    cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).click();\n    cy.location('pathname', {\n      timeout: 15000\n    }).should('include', 'inventory-item.html');\n    cy.get(_selectors.default.productDetails.itemName).should('be.visible').and('have.text', selectedProductName.trim());\n    cy.shouldBeVisible(_selectors.default.productDetails.itemImg);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemPrice);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemDesc);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemButton);\n  });\n});",
+              "code": "cy.clickIn(_selectors.default.checkoutOverview.finish).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-complete.html');\n  cy.log('Navegación a la página de checkout complete correcta ✅');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgComplete, 'Thank you for your order!');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgText, 'Your order has been dispatched, and will arrive just as fast as the pony can get there!');\n  cy.clickIn(_selectors.default.checkoutOverview.backHome).then(() => {\n    cy.shouldHaveUrl('include', '/inventory.html');\n    cy.log('Navegación a la página de productos correcta ✅');\n  });\n});",
               "err": {},
-              "uuid": "b419c68b-46ab-4fb9-a5b9-3584b7060c9c",
-              "parentUUID": "d6165b64-3674-421b-8841-d857800fd155",
+              "uuid": "eedb7cfb-d31c-4b63-b9bd-66b004f2e165",
+              "parentUUID": "ea169daa-2018-46d9-b4c8-8568f4c0d874",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "b419c68b-46ab-4fb9-a5b9-3584b7060c9c"
+            "eedb7cfb-d31c-4b63-b9bd-66b004f2e165"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4220,
+          "duration": 9463,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -83,7 +83,7 @@
     "mochawesome": {
       "options": {
         "quiet": false,
-        "reportFilename": "mochawesome",
+        "reportFilename": "index",
         "saveHtml": false,
         "saveJson": true,
         "consoleReporter": "spec",
@@ -96,6 +96,7 @@
       "options": {
         "id": "default",
         "reportDir": "cypress/reports/mochawesome",
+        "reportFilename": "index",
         "overwrite": false,
         "html": false,
         "json": true

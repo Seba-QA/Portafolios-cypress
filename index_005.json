@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-06T22:54:46.888Z",
-    "end": "2025-09-06T22:54:56.461Z",
-    "duration": 9573,
+    "start": "2025-09-07T05:49:30.489Z",
+    "end": "2025-09-07T05:49:40.320Z",
+    "duration": 9831,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "a8924a3a-1ef2-49b9-bebd-d07e8e37ae40",
+      "uuid": "148f6808-f4ba-4f00-a96c-cf4fd8728ac4",
       "title": "",
       "fullFile": "cypress/e2e/checkout/checkoutForm.cy.js",
       "file": "cypress/e2e/checkout/checkoutForm.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ebd34409-5b42-4f3c-808f-5fa64d7887b8",
+          "uuid": "1ca8810b-f5c9-4fea-991e-3f67b8399330",
           "title": "Validate Checkout Form",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "enter buyer information and continue",
               "fullTitle": "Validate Checkout Form enter buyer information and continue",
               "timedOut": null,
-              "duration": 8295,
+              "duration": 8426,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.clickIn(_selectors.default.checkoutOverview.continue);\ncy.waitSeconds(1);\nif (cy.shouldBeVisible(_selectors.default.checkoutOverview.errorMsg)) {\n  cy.fillOutCheckoutForm(_data.default.buyer.firstName, _data.default.buyer.lastName, _data.default.buyer.zip);\n  cy.clickIn(_selectors.default.checkoutOverview.continue);\n  cy.shouldHaveUrl('include', '/checkout-step-two.html');\n} else {\n  cy.log('No se mostró ningún mensaje de error al intentar continuar sin completar el formulario.');\n}",
               "err": {},
-              "uuid": "d76798cf-5245-43b1-9bcc-c9574e3a28c8",
-              "parentUUID": "ebd34409-5b42-4f3c-808f-5fa64d7887b8",
+              "uuid": "ad0dcd6f-2ed5-4da8-949f-6783bc97930b",
+              "parentUUID": "1ca8810b-f5c9-4fea-991e-3f67b8399330",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d76798cf-5245-43b1-9bcc-c9574e3a28c8"
+            "ad0dcd6f-2ed5-4da8-949f-6783bc97930b"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 8295,
+          "duration": 8426,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -83,7 +83,7 @@
     "mochawesome": {
       "options": {
         "quiet": false,
-        "reportFilename": "mochawesome",
+        "reportFilename": "index",
         "saveHtml": false,
         "saveJson": true,
         "consoleReporter": "spec",
@@ -96,6 +96,7 @@
       "options": {
         "id": "default",
         "reportDir": "cypress/reports/mochawesome",
+        "reportFilename": "index",
         "overwrite": false,
         "html": false,
         "json": true

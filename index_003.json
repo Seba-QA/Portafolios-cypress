@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-06T22:54:25.006Z",
-    "end": "2025-09-06T22:54:33.614Z",
-    "duration": 8608,
+    "start": "2025-09-07T05:49:07.922Z",
+    "end": "2025-09-07T05:49:16.730Z",
+    "duration": 8808,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "d964845a-6ae4-4edc-a7a9-93e8cef43ee7",
+      "uuid": "3e3ec84f-647c-4326-8310-4cc524b2a144",
       "title": "",
       "fullFile": "cypress/e2e/cart/cartNavigation.cy.js",
       "file": "cypress/e2e/cart/cartNavigation.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "a8e55114-e5bf-4a92-92df-36678f4a3f1d",
+          "uuid": "df31257e-5696-48fa-ae11-f5d1be2561e6",
           "title": "Cart page navigation",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "go to checkout from cart",
               "fullTitle": "Cart page navigation go to checkout from cart",
               "timedOut": null,
-              "duration": 7337,
+              "duration": 7458,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "const expectedCart = [];\ncy.get(_selectors.default.cart.cartItem).first().within(() => {\n  cy.get(_selectors.default.products.itemName).invoke('text').then(firstItemName => {\n    expectedCart.push(firstItemName.trim());\n    cy.log(`Producto esperado en el carrito: ${firstItemName} ✅`);\n  });\n});\ncy.then(() => {\n  cy.log(`Contenido acumulado de expectedCart: ${JSON.stringify(expectedCart)}`);\n  console.log(\"Contenido acumulado en consola:\", expectedCart);\n});\ncy.clickIn(_selectors.default.cart.checkout).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-step-one.html');\n  cy.log('Navegación a la página de checkout correcta ✅');\n});\ncy.writeIn(_selectors.default.checkoutOverview.formName, _data.default.personalData.firstName);\ncy.writeIn(_selectors.default.checkoutOverview.formLastName, _data.default.personalData.lastName);\ncy.writeIn(_selectors.default.checkoutOverview.formZip, _data.default.personalData.zip);\ncy.clickIn(_selectors.default.checkoutOverview.continue).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-step-two.html');\n  cy.log('Navegación a la página de checkout step two correcta ✅');\n});",
               "err": {},
-              "uuid": "48281b47-a0ff-4c69-9880-7262cfa7248b",
-              "parentUUID": "a8e55114-e5bf-4a92-92df-36678f4a3f1d",
+              "uuid": "16153322-0665-4115-93e0-0cb254e09377",
+              "parentUUID": "df31257e-5696-48fa-ae11-f5d1be2561e6",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "48281b47-a0ff-4c69-9880-7262cfa7248b"
+            "16153322-0665-4115-93e0-0cb254e09377"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 7337,
+          "duration": 7458,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -83,7 +83,7 @@
     "mochawesome": {
       "options": {
         "quiet": false,
-        "reportFilename": "mochawesome",
+        "reportFilename": "index",
         "saveHtml": false,
         "saveJson": true,
         "consoleReporter": "spec",
@@ -96,6 +96,7 @@
       "options": {
         "id": "default",
         "reportDir": "cypress/reports/mochawesome",
+        "reportFilename": "index",
         "overwrite": false,
         "html": false,
         "json": true

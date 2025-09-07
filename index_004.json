@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-06T22:54:35.147Z",
-    "end": "2025-09-06T22:54:45.605Z",
-    "duration": 10458,
+    "start": "2025-09-07T05:49:18.289Z",
+    "end": "2025-09-07T05:49:28.984Z",
+    "duration": 10695,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "c45f2e3e-6762-4de3-b333-fe46e7d76edc",
+      "uuid": "7d7ba8d9-d7c9-4a8a-9aef-735125c2c7fa",
       "title": "",
       "fullFile": "cypress/e2e/checkout/checkoutFinish.cy.js",
       "file": "cypress/e2e/checkout/checkoutFinish.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "02441de0-b5b1-422a-a48f-2d45a40214cf",
+          "uuid": "2153beb3-c466-491f-b89d-bd5d9676e1cf",
           "title": "Cancel checkout",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "cancel from checkout overview",
               "fullTitle": "Cancel checkout cancel from checkout overview",
               "timedOut": null,
-              "duration": 9214,
+              "duration": 9329,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.clickIn(_selectors.default.checkoutOverview.continue);\ncy.clickIn(_selectors.default.checkoutOverview.cancel).then(() => {\n  cy.shouldHaveUrl('include', '/inventory.html');\n  cy.log('Navegación a la página de inventario correcta ✅');\n});",
               "err": {},
-              "uuid": "85fa06f5-28d8-449c-ae7d-8a9c9d4b1cda",
-              "parentUUID": "02441de0-b5b1-422a-a48f-2d45a40214cf",
+              "uuid": "2cfa7a27-7de1-4821-b90d-7f961467e676",
+              "parentUUID": "2153beb3-c466-491f-b89d-bd5d9676e1cf",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "85fa06f5-28d8-449c-ae7d-8a9c9d4b1cda"
+            "2cfa7a27-7de1-4821-b90d-7f961467e676"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 9214,
+          "duration": 9329,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -83,7 +83,7 @@
     "mochawesome": {
       "options": {
         "quiet": false,
-        "reportFilename": "mochawesome",
+        "reportFilename": "index",
         "saveHtml": false,
         "saveJson": true,
         "consoleReporter": "spec",
@@ -96,6 +96,7 @@
       "options": {
         "id": "default",
         "reportDir": "cypress/reports/mochawesome",
+        "reportFilename": "index",
         "overwrite": false,
         "html": false,
         "json": true

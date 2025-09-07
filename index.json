@@ -1,0 +1,183 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-07T05:48:26.687Z",
+    "end": "2025-09-07T05:48:42.152Z",
+    "duration": 15465,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b7fa2f2d-1a2c-4665-b391-a2020854a7ca",
+      "title": "",
+      "fullFile": "cypress/e2e/auth/login.cy.js",
+      "file": "cypress/e2e/auth/login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2cdfae2f-6934-453b-bf16-0295325c00be",
+          "title": "Authentication Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Successful login correcto credentials",
+              "fullTitle": "Authentication Tests Successful login correcto credentials",
+              "timedOut": null,
+              "duration": 4726,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(_data.default.users.standard.username, _data.default.users.password);\ncy.shouldHaveUrl('include', '/inventory.html');\ncy.shouldBeVisible(_selectors.default.products.title);\ncy.shouldBeVisible(_selectors.default.products.inventoryContainer);",
+              "err": {},
+              "uuid": "e4b9974a-df0b-4fc8-b365-a0c40144a036",
+              "parentUUID": "2cdfae2f-6934-453b-bf16-0295325c00be",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login with incorrect credentials",
+              "fullTitle": "Authentication Tests Unsuccessful login with incorrect credentials",
+              "timedOut": null,
+              "duration": 4037,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('invalid_user', 'invalid_password');\ncy.shouldBeVisible(_selectors.default.login.ErrorMessage);\ncy.shouldHaveText(_selectors.default.login.ErrorMessage, 'Epic sadface: Username and password do not match any user in this service');\ncy.shouldHaveUrl('eq', 'https://www.saucedemo.com/');",
+              "err": {},
+              "uuid": "b133ac6e-cdc0-464a-be5c-da5750ffbd80",
+              "parentUUID": "2cdfae2f-6934-453b-bf16-0295325c00be",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login with empty user",
+              "fullTitle": "Authentication Tests Unsuccessful login with empty user",
+              "timedOut": null,
+              "duration": 518,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.writeIn(_selectors.default.login.password, _data.default.users.password);\ncy.clickIn(_selectors.default.login.loginButton);\ncy.shouldBeVisible(_selectors.default.login.ErrorMessage);\ncy.shouldHaveText(_selectors.default.login.ErrorMessage, 'Epic sadface: Username is required');\ncy.shouldHaveUrl('eq', 'https://www.saucedemo.com/');",
+              "err": {},
+              "uuid": "0eb67cfd-1a32-44b9-9399-3cf76fb52101",
+              "parentUUID": "2cdfae2f-6934-453b-bf16-0295325c00be",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login with empty password",
+              "fullTitle": "Authentication Tests Unsuccessful login with empty password",
+              "timedOut": null,
+              "duration": 519,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.writeIn(_selectors.default.login.username, _data.default.users.standard.username);\ncy.clickIn(_selectors.default.login.loginButton);\ncy.shouldBeVisible(_selectors.default.login.ErrorMessage);\ncy.shouldHaveText(_selectors.default.login.ErrorMessage, 'Epic sadface: Password is required');\ncy.shouldHaveUrl('eq', 'https://www.saucedemo.com/');",
+              "err": {},
+              "uuid": "56faedb4-e78c-4ad0-811a-7e08b96f140b",
+              "parentUUID": "2cdfae2f-6934-453b-bf16-0295325c00be",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login with locked out user",
+              "fullTitle": "Authentication Tests Unsuccessful login with locked out user",
+              "timedOut": null,
+              "duration": 3899,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(_data.default.users.locked.username, 'secret_sauce');\ncy.shouldBeVisible(_selectors.default.login.ErrorMessage);\ncy.shouldHaveText(_selectors.default.login.ErrorMessage, 'Epic sadface: Sorry, this user has been locked out.');\ncy.shouldHaveUrl('eq', 'https://www.saucedemo.com/');",
+              "err": {},
+              "uuid": "9db2c986-010b-42c1-889c-315d16afc00f",
+              "parentUUID": "2cdfae2f-6934-453b-bf16-0295325c00be",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e4b9974a-df0b-4fc8-b365-a0c40144a036",
+            "b133ac6e-cdc0-464a-be5c-da5750ffbd80",
+            "0eb67cfd-1a32-44b9-9399-3cf76fb52101",
+            "56faedb4-e78c-4ad0-811a-7e08b96f140b",
+            "9db2c986-010b-42c1-889c-315d16afc00f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13699,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mochawesome",
+        "reportFilename": "index",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
