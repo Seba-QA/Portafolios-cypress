@@ -4,12 +4,8 @@
   "description": "Proyecto de automatización E2E con Cypress para Swag Labs",
   "main": "index.js",
   "scripts": {
-    "clean:reports": "rimraf cypress/reports",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run cypress run --browser chrome --headless",
-    "report:merge": "mochawesome-merge cypress/reports/mochawesome/mochawesome_*.json --output cypress/reports/mochawesome/mochawesome.json",
-    "report:generate": "marge cypress/reports/mochawesome/mochawesome.json --reportDir cypress/reports --reportFilename report.html --inline",
-    "report:full": "npm run clean:reports && npm run cypress:run && npm run report:merge && npm run report:generate"
+    "report": "cypress run"
   },
   "author": "Sebastian",
   "license": "ISC",
