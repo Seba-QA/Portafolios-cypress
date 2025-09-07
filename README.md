@@ -1,6 +1,6 @@
 # Swag Labs - Portafolio de Automatización con Cypress
 
-![Cypress Tests](https://github.com/Seba-QA/Portafolios-cypress/actions/workflows/cypress.yml/badge.svg)
+![Cypress Tests](https://github.com/Seba-QA/Portafolios-cypress/actions/workflows/page.yml/badge.svg)
 
 Este proyecto forma parte de mi **portafolio profesional de automatización**, y está enfocado en la creación de **pruebas automatizadas end-to-end (E2E)** sobre la aplicación web [Swag Labs](https://www.saucedemo.com/) utilizando **Cypress**.  
 

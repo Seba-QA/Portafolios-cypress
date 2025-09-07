@@ -19,13 +19,13 @@ module.exports = defineConfig({
       mochaFile: "cypress/reports/junit/results-[hash].xml",
       toConsole: false,
       attachments: false
-      // useFullSuiteTitle: true, // opcional si quieres suite title completo
+      // useFullSuiteTitle: true,
     }
   },
 
   e2e: {
     setupNodeEvents(on, config) {
-      // Aquí se pueden implementar event listeners si luego necesitas manipular reportes u otros hooks
+      // Aquí se pueden implementar event listeners
     },
   },
 
