@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T07:12:32.752Z",
-    "end": "2025-09-07T07:12:52.903Z",
-    "duration": 20151,
+    "start": "2025-09-07T17:28:29.165Z",
+    "end": "2025-09-07T17:28:49.104Z",
+    "duration": 19939,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "ec0a4217-71cf-4038-8557-0cc79e1c1b72",
+      "uuid": "7636e3a7-5c6c-4345-90cc-eea1d4dc83c7",
       "title": "",
       "fullFile": "cypress/e2e/checkout/checkoutOverview.cy.js",
       "file": "cypress/e2e/checkout/checkoutOverview.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "bb34781f-302e-4c39-9b35-a54780197a5a",
+          "uuid": "bf768a25-c4a4-4af6-b0ee-b41cae01eb2b",
           "title": "purchase summary validation",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "validate purchase summary details",
               "fullTitle": "purchase summary validation validate purchase summary details",
               "timedOut": null,
-              "duration": 9392,
+              "duration": 9279,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "let calculatedSum = 0;\ncy.get(_selectors.default.checkoutOverview.cartItem).each($item => {\n  cy.wrap($item).find(_selectors.default.checkoutOverview.itemPrice).invoke('text').then(priceText => {\n    const price = parseFloat(priceText.replace('$', '').trim());\n    calculatedSum += price;\n  });\n}).then(() => {\n  cy.get(_selectors.default.checkoutOverview.subtotal).invoke('text').then(subtotalText => {\n    const subtotal = parseFloat(subtotalText.replace('Item total: $', '').trim());\n    expect(subtotal).to.eq(calculatedSum);\n  });\n  cy.get(_selectors.default.checkoutOverview.tax).invoke('text').then(taxText => {\n    const tax = parseFloat(taxText.replace('Tax: $', '').trim());\n    cy.get(_selectors.default.checkoutOverview.total).invoke('text').then(totalText => {\n      const total = parseFloat(totalText.replace('Total: $', '').trim());\n      expect(total).to.eq(calculatedSum + tax);\n    });\n  });\n});",
               "err": {},
-              "uuid": "91178b4a-2d6b-430e-9e28-508c34335ea0",
-              "parentUUID": "bb34781f-302e-4c39-9b35-a54780197a5a",
+              "uuid": "9cfaccee-ab43-435a-8f80-b2ef1b350404",
+              "parentUUID": "bf768a25-c4a4-4af6-b0ee-b41cae01eb2b",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "finalize purchase and validate completion",
               "fullTitle": "purchase summary validation finalize purchase and validate completion",
               "timedOut": null,
-              "duration": 9396,
+              "duration": 9316,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.clickIn(_selectors.default.checkoutOverview.finish).then(() => {\n  cy.shouldHaveUrl('include', '/checkout-complete.html');\n  cy.log('Navegación a la página de checkout complete correcta ✅');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgComplete, 'Thank you for your order!');\n  cy.shouldHaveText(_selectors.default.checkoutOverview.msgText, 'Your order has been dispatched, and will arrive just as fast as the pony can get there!');\n  cy.clickIn(_selectors.default.checkoutOverview.backHome).then(() => {\n    cy.shouldHaveUrl('include', '/inventory.html');\n    cy.log('Navegación a la página de productos correcta ✅');\n  });\n});",
               "err": {},
-              "uuid": "7b163931-0420-4575-9729-766a5e800dc0",
-              "parentUUID": "bb34781f-302e-4c39-9b35-a54780197a5a",
+              "uuid": "0a1d854d-b7c9-4462-a8d4-7486effd3c28",
+              "parentUUID": "bf768a25-c4a4-4af6-b0ee-b41cae01eb2b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "91178b4a-2d6b-430e-9e28-508c34335ea0",
-            "7b163931-0420-4575-9729-766a5e800dc0"
+            "9cfaccee-ab43-435a-8f80-b2ef1b350404",
+            "0a1d854d-b7c9-4462-a8d4-7486effd3c28"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 18788,
+          "duration": 18595,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

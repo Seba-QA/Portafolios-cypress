@@ -5,8 +5,8 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-07T07:12:54.429Z",
-    "end": "2025-09-07T07:13:00.002Z",
+    "start": "2025-09-07T17:28:50.582Z",
+    "end": "2025-09-07T17:28:56.155Z",
     "duration": 5573,
     "testsRegistered": 1,
     "passPercent": 100,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "107baff1-5be8-4d06-a26b-599997ed6df6",
+      "uuid": "9420f07c-a6ac-4d2e-912a-be7c3e726e26",
       "title": "",
       "fullFile": "cypress/e2e/products/productsDetails.cy.js",
       "file": "cypress/e2e/products/productsDetails.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "74492eab-647b-4cec-8b98-6c3479dc16d8",
+          "uuid": "bd7c646d-b620-41aa-9173-a32b0ae7c7fa",
           "title": "Products Details Page",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "acces the details of a random product",
               "fullTitle": "Products Details Page acces the details of a random product",
               "timedOut": null,
-              "duration": 4293,
+              "duration": 4266,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.get(_selectors.default.products.inventoryItem).its('length').then(len => {\n  const idx = Cypress._.random(0, len - 1);\n  cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).invoke('text').then(selectedProductName => {\n    cy.get(_selectors.default.products.inventoryItem).eq(idx).find(_selectors.default.products.itemName).click();\n    cy.location('pathname', {\n      timeout: 15000\n    }).should('include', 'inventory-item.html');\n    cy.get(_selectors.default.productDetails.itemName).should('be.visible').and('have.text', selectedProductName.trim());\n    cy.shouldBeVisible(_selectors.default.productDetails.itemImg);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemPrice);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemDesc);\n    cy.shouldBeVisible(_selectors.default.productDetails.itemButton);\n  });\n});",
               "err": {},
-              "uuid": "852155bb-b880-4d01-ad75-386eedec34ea",
-              "parentUUID": "74492eab-647b-4cec-8b98-6c3479dc16d8",
+              "uuid": "4e9171af-5e76-4625-a958-d59d09ccc45d",
+              "parentUUID": "bd7c646d-b620-41aa-9173-a32b0ae7c7fa",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "852155bb-b880-4d01-ad75-386eedec34ea"
+            "4e9171af-5e76-4625-a958-d59d09ccc45d"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4293,
+          "duration": 4266,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
