@@ -28,4 +28,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.RP_TOKEN }}
-          publish_dir: ./cypress/reports/mochawesome
+          publish_dir: ./cypress/reports/mochawesome-report
