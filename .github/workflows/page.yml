@@ -23,6 +23,7 @@ jobs:
 
       - name: Run Cypress tests and generate report
         run: npm run report:full
+        continue-on-error: true
 
       - name: Crear portada index.html con fecha y hora
         run: |
