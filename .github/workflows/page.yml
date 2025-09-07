@@ -25,13 +25,8 @@ jobs:
         run: npm run report:full
         continue-on-error: true
 
-      - name: Crear portada index.html con fecha y hora
-        run: |
-          echo "<html><head><title>Reporte Swag Labs</title></head><body>" > cypress/reports/mochawesome/index.html
-          echo "<h1>Reporte de Pruebas Swag Labs</h1>" >> cypress/reports/mochawesome/index.html
-          echo "<p>Última ejecución: $(date -u)</p>" >> cypress/reports/mochawesome/index.html
-          echo "<a href='report.html'>Ver reporte Mochawesome</a>" >> cypress/reports/mochawesome/index.html
-          echo "</body></html>" >> cypress/reports/mochawesome/index.html
+      - name: Insertar fecha y hora en el reporte HTML
+        run: node insert-date.js
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
