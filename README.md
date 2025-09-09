@@ -1,5 +1,6 @@
 # Swag Labs - Portafolio de Automatización con Cypress
 
+![CI](https://github.com/Seba-QA/Portafolios-cypress/actions/workflows/cypress.yml/badge.svg)
 [![Report](https://img.shields.io/badge/Report-Mochawesome-blue)](https://seba-qa.github.io/Portafolios-cypress/)
 
 Este proyecto forma parte de mi **portafolio profesional de automatización**, y está enfocado en la creación de **pruebas automatizadas end-to-end (E2E)** sobre la aplicación web [Swag Labs](https://www.saucedemo.com/) utilizando **Cypress**.  
@@ -33,6 +34,28 @@ Este repositorio se actualizará progresivamente, incorporando nuevos módulos, 
    ```bash
    npx cypress run
    ```
+
+---
+
+## **Scripts adicionales**
+   **limpia reportes anteriores**
+   ```bash
+   npm run clean:reports
+   ```
+   **ejecuta todas las pruebas, genera reportes y los unifica**
+   ```bash
+   npm run report:full
+   ```
+   **combina todos los JSON de Mochawesome en un solo archivo**
+   ```bash
+   combina todos los JSON de Mochawesome en un solo archivo
+   ```
+   **genera el reporte HTML a partir del JSON unificado.**
+   ```bash
+   npm run report:generate
+   ```
+
+---
 
 ## **Estructura del proyecto**
 
@@ -79,13 +102,22 @@ cypress/reports/
     ├── index.html 
     └── videos/    
 ```
+**🔗 [Ver último reporte Mochawesome](https://seba-qa.github.io/Portafolios-cypress/)**
 
 Ejemplo de ejecución:
-- Al ejecutar `npm run report:full`.
+- Se ejecuta `npm run report:full`.
 - Se limpia la carpeta de reportes anteriores.
 - Se ejecutan todas las pruebas.
 - Se genera carpeta junit con sus .xml por test
 - Se genera carpeta mochawesome con su index.html y carpeta videos
+
+---
+
+## **⚙️ Integración Continua (CI/CD)**
+   **Este repositorio incluye un pipeline en GitHub Actions que:**
+   1. Ejecuta todas las pruebas automáticamente en cada push.
+   2. Genera los reportes (JUnit + Mochawesome).
+   3. Publica el reporte Mochawesome como página en GitHub Pages.
 
 ---
 
